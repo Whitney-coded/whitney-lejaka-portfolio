@@ -21,7 +21,7 @@ const HeroSection = () => {
             </p>
             <div className="pt-4 flex flex-wrap gap-4">
               <a href="#projects" className="cyber-button">View Projects</a>
-              <a href="#contact" className="bg-transparent border-2 border-cyber-magenta text-cyber-magenta hover:bg-cyber-magenta hover:text-cyber-dark-blue px-6 py-2 font-bold uppercase tracking-wider transition-all duration-300 rounded-sm shadow-[0_0_10px_rgba(189,52,254,0.3)] hover:shadow-[0_0_15px_rgba(189,52,254,0.5)]">
+              <a href="#contact" className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-black px-6 py-2 font-bold uppercase tracking-wider transition-all duration-300 rounded-sm shadow-[0_0_10px_rgba(255,255,255,0.3)] hover:shadow-[0_0_15px_rgba(255,255,255,0.5)]">
                 Get In Touch
               </a>
             </div>

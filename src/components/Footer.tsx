@@ -11,7 +11,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-cyber-black py-10 border-t border-cyber-neon/10">
+    <footer className="bg-black py-10 border-t border-cyber-neon/10">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-6 md:mb-0">
@@ -34,7 +34,7 @@ const Footer = () => {
           
           <button 
             onClick={scrollToTop}
-            className="w-10 h-10 rounded-sm bg-cyber-dark-blue border border-cyber-neon/30 flex items-center justify-center text-cyber-neon hover:bg-cyber-neon hover:text-cyber-dark-blue transition-colors duration-300"
+            className="w-10 h-10 rounded-sm bg-black border border-cyber-neon/30 flex items-center justify-center text-cyber-neon hover:bg-cyber-neon hover:text-black transition-colors duration-300"
           >
             <ArrowUp className="w-5 h-5" />
           </button>

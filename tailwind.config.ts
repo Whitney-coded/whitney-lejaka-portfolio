@@ -54,12 +54,12 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				cyber: {
-					"black": "#0B0F19",
-					"dark-blue": "#131A2B", 
-					"blue": "#253047",
-					"neon": "#64FFDA",
-					"magenta": "#BD34FE",
-					"yellow": "#FFD166"
+					"black": "#000000",
+					"dark-blue": "#111111", 
+					"blue": "#222222",
+					"neon": "#00FF66",
+					"magenta": "#ffffff",
+					"yellow": "#ffffff"
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
@@ -126,9 +126,9 @@ export default {
 				'float': 'float 6s ease-in-out infinite'
 			},
 			backgroundImage: {
-				'cyber-grid': 'linear-gradient(to right, rgba(100, 255, 218, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(100, 255, 218, 0.05) 1px, transparent 1px)',
-				'cyber-glow': 'radial-gradient(circle, rgba(100, 255, 218, 0.15) 0%, rgba(0, 0, 0, 0) 70%)',
-				'web3-gradient': 'linear-gradient(135deg, rgba(189, 52, 254, 0.15) 0%, rgba(100, 255, 218, 0.15) 100%)'
+				'cyber-grid': 'linear-gradient(to right, rgba(0, 255, 102, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 255, 102, 0.05) 1px, transparent 1px)',
+				'cyber-glow': 'radial-gradient(circle, rgba(0, 255, 102, 0.15) 0%, rgba(0, 0, 0, 0) 70%)',
+				'web3-gradient': 'linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 255, 102, 0.1) 100%)'
 			}
 		}
 	},
