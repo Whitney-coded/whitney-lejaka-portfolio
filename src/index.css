@@ -5,33 +5,33 @@
 
 @layer base {
   :root {
-    --background: 222 47% 11%;
-    --foreground: 180 100% 97%;
+    --background: 220 15% 16%;
+    --foreground: 0 0% 95%;
 
-    --card: 222 47% 15%;
-    --card-foreground: 180 100% 97%;
+    --card: 220 15% 20%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 222 47% 11%;
-    --popover-foreground: 180 100% 97%;
+    --popover: 220 15% 16%;
+    --popover-foreground: 0 0% 95%;
 
-    --primary: 180 92% 51%;
-    --primary-foreground: 222 47% 11%;
+    --primary: 196 88% 49%;
+    --primary-foreground: 220 15% 16%;
 
-    --secondary: 306 100% 55%;
-    --secondary-foreground: 180 100% 97%;
+    --secondary: 262 75% 74%;
+    --secondary-foreground: 0 0% 95%;
 
-    --muted: 222 47% 20%;
-    --muted-foreground: 180 100% 70%;
+    --muted: 220 15% 25%;
+    --muted-foreground: 0 0% 70%;
 
-    --accent: 60 100% 55%;
-    --accent-foreground: 222 47% 11%;
+    --accent: 262 33% 50%;
+    --accent-foreground: 220 15% 16%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 180 100% 97%;
+    --destructive-foreground: 0 0% 95%;
 
-    --border: 180 92% 51% / 50%;
-    --input: 222 47% 20%;
-    --ring: 180 92% 51%;
+    --border: 196 88% 49% / 30%;
+    --input: 220 15% 25%;
+    --ring: 196 88% 49%;
 
     --radius: 0.5rem;
   }
@@ -55,13 +55,13 @@
 
 @layer components {
   .cyber-border {
-    @apply relative border-2 border-cyber-neon rounded-sm shadow-[0_0_10px_rgba(14,247,247,0.5)];
+    @apply relative border-2 border-cyber-neon rounded-sm shadow-[0_0_10px_rgba(30,174,219,0.5)];
   }
   
   .cyber-button {
     @apply relative px-6 py-2 bg-transparent text-cyber-neon border-2 border-cyber-neon font-bold uppercase tracking-wider
-    hover:bg-cyber-neon hover:text-cyber-dark-blue hover:shadow-[0_0_15px_rgba(14,247,247,0.8)] 
-    transition-all duration-300 rounded-sm shadow-[0_0_10px_rgba(14,247,247,0.3)];
+    hover:bg-cyber-neon hover:text-cyber-dark-blue hover:shadow-[0_0_15px_rgba(30,174,219,0.8)] 
+    transition-all duration-300 rounded-sm shadow-[0_0_10px_rgba(30,174,219,0.3)];
   }
   
   .cyber-glitch {

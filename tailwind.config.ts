@@ -54,12 +54,12 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				cyber: {
-					"black": "#121212",
-					"dark-blue": "#0D1B2A", 
-					"blue": "#1B263B",
-					"neon": "#0EF7F7",
-					"magenta": "#FF19F8",
-					"yellow": "#F7FF19"
+					"black": "#1A1F2C",
+					"dark-blue": "#2D3748", 
+					"blue": "#4A5568",
+					"neon": "#1EAEDB",
+					"magenta": "#9b87f5",
+					"yellow": "#6E59A5"
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
@@ -120,8 +120,8 @@ export default {
 				'text-flicker': 'text-flicker 2s linear infinite'
 			},
 			backgroundImage: {
-				'cyber-grid': 'linear-gradient(to right, rgba(14, 247, 247, 0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(14, 247, 247, 0.1) 1px, transparent 1px)',
-				'cyber-glow': 'radial-gradient(circle, rgba(14, 247, 247, 0.2) 0%, rgba(0, 0, 0, 0) 70%)'
+				'cyber-grid': 'linear-gradient(to right, rgba(30, 174, 219, 0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(30, 174, 219, 0.1) 1px, transparent 1px)',
+				'cyber-glow': 'radial-gradient(circle, rgba(30, 174, 219, 0.2) 0%, rgba(0, 0, 0, 0) 70%)'
 			}
 		}
 	},
