@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { Menu, X, Home, User, Briefcase, Phone, FileText } from "lucide-react";
+import { Menu, X, Home, User, Briefcase, Phone, FileText, Wallet } from "lucide-react";
 import { cn } from '@/lib/utils';
 
 const Navigation = () => {
@@ -16,9 +16,12 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-cyber-dark-blue/80 backdrop-blur-md border-b border-cyber-neon/20">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-cyber-black/80 backdrop-blur-md border-b border-cyber-neon/10">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <a href="#" className="cyber-text text-2xl font-bold tracking-wider">WHITNEY.LEJ</a>
+        <a href="#" className="cyber-text text-2xl font-bold tracking-wider flex items-center gap-2">
+          <Wallet className="h-6 w-6" />
+          <span>WHITNEY.LEJ</span>
+        </a>
         
         {/* Desktop Navigation */}
         <div className="hidden md:flex space-x-8">

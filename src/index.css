@@ -5,33 +5,33 @@
 
 @layer base {
   :root {
-    --background: 220 15% 16%;
+    --background: 230 40% 7%;
     --foreground: 0 0% 95%;
 
-    --card: 220 15% 20%;
+    --card: 230 40% 10%;
     --card-foreground: 0 0% 95%;
 
-    --popover: 220 15% 16%;
+    --popover: 230 40% 7%;
     --popover-foreground: 0 0% 95%;
 
-    --primary: 196 88% 49%;
-    --primary-foreground: 220 15% 16%;
+    --primary: 166 100% 70%;
+    --primary-foreground: 230 40% 7%;
 
-    --secondary: 262 75% 74%;
+    --secondary: 277 99% 60%;
     --secondary-foreground: 0 0% 95%;
 
-    --muted: 220 15% 25%;
+    --muted: 230 40% 15%;
     --muted-foreground: 0 0% 70%;
 
-    --accent: 262 33% 50%;
-    --accent-foreground: 220 15% 16%;
+    --accent: 45 100% 70%;
+    --accent-foreground: 230 40% 7%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 95%;
 
-    --border: 196 88% 49% / 30%;
-    --input: 220 15% 25%;
-    --ring: 196 88% 49%;
+    --border: 166 100% 70% / 20%;
+    --input: 230 40% 15%;
+    --ring: 166 100% 70%;
 
     --radius: 0.5rem;
   }
@@ -55,13 +55,13 @@
 
 @layer components {
   .cyber-border {
-    @apply relative border-2 border-cyber-neon rounded-sm shadow-[0_0_10px_rgba(30,174,219,0.5)];
+    @apply relative border-2 border-cyber-neon rounded-sm shadow-[0_0_10px_rgba(100,255,218,0.3)];
   }
   
   .cyber-button {
     @apply relative px-6 py-2 bg-transparent text-cyber-neon border-2 border-cyber-neon font-bold uppercase tracking-wider
-    hover:bg-cyber-neon hover:text-cyber-dark-blue hover:shadow-[0_0_15px_rgba(30,174,219,0.8)] 
-    transition-all duration-300 rounded-sm shadow-[0_0_10px_rgba(30,174,219,0.3)];
+    hover:bg-cyber-neon hover:text-cyber-dark-blue hover:shadow-[0_0_15px_rgba(100,255,218,0.5)] 
+    transition-all duration-300 rounded-sm shadow-[0_0_10px_rgba(100,255,218,0.2)];
   }
   
   .cyber-glitch {
@@ -85,7 +85,7 @@
   }
   
   .scanline::before {
-    @apply content-[''] absolute top-0 left-0 w-full h-8 bg-gradient-to-b from-transparent to-cyber-neon opacity-20 z-10 animate-scanline;
+    @apply content-[''] absolute top-0 left-0 w-full h-8 bg-gradient-to-b from-transparent to-cyber-neon opacity-10 z-10 animate-scanline;
   }
   
   .cyber-text {
@@ -119,5 +119,49 @@
   
   .text-flicker {
     @apply animate-text-flicker;
+  }
+  
+  .web3-card {
+    @apply relative bg-cyber-dark-blue border border-cyber-neon/20 rounded-lg p-6 overflow-hidden transition-all duration-300;
+    background-image: linear-gradient(135deg, rgba(11, 15, 25, 0.8) 0%, rgba(19, 26, 43, 0.8) 100%);
+  }
+  
+  .web3-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(189, 52, 254, 0.1) 0%, rgba(100, 255, 218, 0.1) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 0;
+  }
+  
+  .web3-card:hover::before {
+    opacity: 1;
+  }
+  
+  .web3-card::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(135deg, rgba(189, 52, 254, 0.5) 0%, rgba(100, 255, 218, 0.5) 100%);
+    z-index: -1;
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .web3-card:hover::after {
+    opacity: 0.3;
+  }
+  
+  .floating {
+    @apply animate-float;
   }
 }

@@ -54,12 +54,12 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				cyber: {
-					"black": "#1A1F2C",
-					"dark-blue": "#2D3748", 
-					"blue": "#4A5568",
-					"neon": "#1EAEDB",
-					"magenta": "#9b87f5",
-					"yellow": "#6E59A5"
+					"black": "#0B0F19",
+					"dark-blue": "#131A2B", 
+					"blue": "#253047",
+					"neon": "#64FFDA",
+					"magenta": "#BD34FE",
+					"yellow": "#FFD166"
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
@@ -110,6 +110,11 @@ export default {
 					'80%': { opacity: '0.2' },
 					'90%': { opacity: '0.8' },
 					'100%': { opacity: '1' }
+				},
+				'float': {
+					'0%': { transform: 'translateY(0px)' },
+					'50%': { transform: 'translateY(-10px)' },
+					'100%': { transform: 'translateY(0px)' }
 				}
 			},
 			animation: {
@@ -117,11 +122,13 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'glitch': 'glitch 0.5s linear infinite',
 				'scanline': 'scanline 8s linear infinite',
-				'text-flicker': 'text-flicker 2s linear infinite'
+				'text-flicker': 'text-flicker 2s linear infinite',
+				'float': 'float 6s ease-in-out infinite'
 			},
 			backgroundImage: {
-				'cyber-grid': 'linear-gradient(to right, rgba(30, 174, 219, 0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(30, 174, 219, 0.1) 1px, transparent 1px)',
-				'cyber-glow': 'radial-gradient(circle, rgba(30, 174, 219, 0.2) 0%, rgba(0, 0, 0, 0) 70%)'
+				'cyber-grid': 'linear-gradient(to right, rgba(100, 255, 218, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(100, 255, 218, 0.05) 1px, transparent 1px)',
+				'cyber-glow': 'radial-gradient(circle, rgba(100, 255, 218, 0.15) 0%, rgba(0, 0, 0, 0) 70%)',
+				'web3-gradient': 'linear-gradient(135deg, rgba(189, 52, 254, 0.15) 0%, rgba(100, 255, 218, 0.15) 100%)'
 			}
 		}
 	},

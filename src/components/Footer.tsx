@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ArrowUp } from 'lucide-react';
+import { ArrowUp, Wallet, Bitcoin } from 'lucide-react';
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -11,11 +11,14 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-cyber-black py-10 border-t border-cyber-neon/20">
+    <footer className="bg-cyber-black py-10 border-t border-cyber-neon/10">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-6 md:mb-0">
-            <a href="#" className="cyber-text text-2xl font-bold tracking-wider">WHITNEY.LEJ</a>
+            <a href="#" className="cyber-text text-2xl font-bold tracking-wider flex items-center gap-2">
+              <Wallet className="h-6 w-6" />
+              <span>WHITNEY.LEJ</span>
+            </a>
             <p className="text-foreground/60 mt-2">
               AWS Solutions Architect & Cloud Practitioner
             </p>
@@ -31,7 +34,7 @@ const Footer = () => {
           
           <button 
             onClick={scrollToTop}
-            className="w-10 h-10 rounded-sm bg-cyber-blue/20 border border-cyber-neon/50 flex items-center justify-center text-cyber-neon hover:bg-cyber-neon hover:text-cyber-dark-blue transition-colors duration-300"
+            className="w-10 h-10 rounded-sm bg-cyber-dark-blue border border-cyber-neon/30 flex items-center justify-center text-cyber-neon hover:bg-cyber-neon hover:text-cyber-dark-blue transition-colors duration-300"
           >
             <ArrowUp className="w-5 h-5" />
           </button>
