@@ -58,6 +58,7 @@ export default {
 					"dark-blue": "#111111", 
 					"blue": "#222222",
 					"neon": "#00FF66",
+					"neon-light": "#00C852", // Slightly darker for light mode
 					"magenta": "#ffffff",
 					"yellow": "#ffffff"
 				},
@@ -127,8 +128,11 @@ export default {
 			},
 			backgroundImage: {
 				'cyber-grid': 'linear-gradient(to right, rgba(0, 255, 102, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 255, 102, 0.05) 1px, transparent 1px)',
+				'cyber-grid-light': 'linear-gradient(to right, rgba(0, 200, 82, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 200, 82, 0.05) 1px, transparent 1px)',
 				'cyber-glow': 'radial-gradient(circle, rgba(0, 255, 102, 0.15) 0%, rgba(0, 0, 0, 0) 70%)',
-				'web3-gradient': 'linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 255, 102, 0.1) 100%)'
+				'cyber-glow-light': 'radial-gradient(circle, rgba(0, 200, 82, 0.15) 0%, rgba(255, 255, 255, 0) 70%)',
+				'web3-gradient': 'linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 255, 102, 0.1) 100%)',
+				'web3-gradient-light': 'linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(0, 200, 82, 0.1) 100%)'
 			}
 		}
 	},

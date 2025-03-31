@@ -35,6 +35,38 @@
 
     --radius: 0.25rem;
   }
+
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 10%;
+
+    --card: 0 0% 98%;
+    --card-foreground: 0 0% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+
+    --primary: 140 100% 40%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 90%;
+    --muted-foreground: 0 0% 40%;
+
+    --accent: 140 100% 40%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 140 100% 40% / 20%;
+    --input: 0 0% 90%;
+    --ring: 140 100% 40%;
+
+    --radius: 0.25rem;
+  }
 }
 
 @layer base {
@@ -43,8 +75,9 @@
   }
 
   body {
-    @apply bg-black text-foreground;
-    @apply bg-[url('/grid-bg.png')] bg-repeat;
+    @apply bg-background text-foreground;
+    @apply dark:bg-[url('/grid-bg.png')] dark:bg-repeat;
+    @apply light:bg-white light:bg-none;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   }
   
@@ -55,13 +88,16 @@
 
 @layer components {
   .cyber-border {
-    @apply relative border-2 border-cyber-neon rounded-sm shadow-[0_0_10px_rgba(0,255,102,0.3)];
+    @apply relative border-2 border-cyber-neon rounded-sm shadow-[0_0_10px_rgba(0,255,102,0.3)] 
+           light:shadow-[0_0_10px_rgba(0,200,82,0.3)];
   }
   
   .cyber-button {
     @apply relative px-6 py-2 bg-transparent text-cyber-neon border-2 border-cyber-neon font-bold uppercase tracking-wider
     hover:bg-cyber-neon hover:text-cyber-black hover:shadow-[0_0_15px_rgba(0,255,102,0.5)] 
-    transition-all duration-300 rounded-sm shadow-[0_0_10px_rgba(0,255,102,0.2)];
+    transition-all duration-300 rounded-sm shadow-[0_0_10px_rgba(0,255,102,0.2)]
+    light:text-cyber-neon-light light:border-cyber-neon-light light:hover:bg-cyber-neon-light 
+    light:hover:text-white light:shadow-[0_0_10px_rgba(0,200,82,0.2)];
   }
   
   .cyber-glitch {
@@ -74,7 +110,7 @@
   }
   
   .cyber-glitch:hover::before {
-    @apply bg-cyber-neon -ml-2 animate-glitch;
+    @apply bg-cyber-neon -ml-2 animate-glitch dark:bg-cyber-neon light:bg-cyber-neon-light;
     mix-blend-mode: difference;
   }
   
@@ -85,15 +121,17 @@
   }
   
   .scanline::before {
-    @apply content-[''] absolute top-0 left-0 w-full h-8 bg-gradient-to-b from-transparent to-cyber-neon opacity-10 z-10 animate-scanline;
+    @apply content-[''] absolute top-0 left-0 w-full h-8 bg-gradient-to-b from-transparent to-cyber-neon opacity-10 z-10 animate-scanline 
+           light:to-cyber-neon-light;
   }
   
   .cyber-text {
-    @apply text-transparent bg-clip-text bg-gradient-to-r from-white via-cyber-neon to-white;
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-white via-cyber-neon to-white 
+           light:from-slate-800 light:via-cyber-neon-light light:to-slate-800;
   }
   
   .cyber-grid-bg {
-    @apply bg-cyber-grid bg-[size:50px_50px];
+    @apply dark:bg-cyber-grid dark:bg-[size:50px_50px] light:bg-cyber-grid-light light:bg-[size:50px_50px];
   }
   
   .glow {
@@ -108,7 +146,8 @@
     right: 0;
     bottom: 0;
     border-radius: inherit;
-    box-shadow: 0 0 30px 5px theme('colors.cyber.neon');
+    @apply dark:shadow-[0_0_30px_5px_theme('colors.cyber.neon')] 
+           light:shadow-[0_0_30px_5px_theme('colors.cyber.neon-light')];
     opacity: 0;
     transition: opacity 0.3s ease;
   }
@@ -122,8 +161,10 @@
   }
   
   .web3-card {
-    @apply relative bg-black border border-cyber-neon/20 rounded-lg p-6 overflow-hidden transition-all duration-300;
+    @apply relative bg-black border border-cyber-neon/20 rounded-lg p-6 overflow-hidden transition-all duration-300 
+           light:bg-white light:border-cyber-neon-light/20;
     background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(17, 17, 17, 0.9) 100%);
+    @apply light:bg-none light:bg-gradient-to-br light:from-white light:to-gray-100;
   }
   
   .web3-card::before {
@@ -134,6 +175,7 @@
     right: 0;
     bottom: 0;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(0, 255, 102, 0.1) 100%);
+    @apply light:bg-gradient-to-br light:from-white/10 light:to-cyber-neon-light/10;
     opacity: 0;
     transition: opacity 0.3s ease;
     z-index: 0;
@@ -151,6 +193,7 @@
     right: -2px;
     bottom: -2px;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(0, 255, 102, 0.5) 100%);
+    @apply light:bg-gradient-to-br light:from-white/50 light:to-cyber-neon-light/50;
     z-index: -1;
     border-radius: inherit;
     opacity: 0;
