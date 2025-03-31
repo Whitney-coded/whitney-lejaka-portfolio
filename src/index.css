@@ -44,15 +44,12 @@
 
   body {
     @apply bg-black text-foreground;
+    @apply bg-[url('/grid-bg.png')] bg-repeat;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   }
   
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Share Tech Mono', monospace;
-  }
-  
-  canvas {
-    touch-action: none;
   }
 }
 
@@ -87,8 +84,16 @@
     mix-blend-mode: difference;
   }
   
+  .scanline::before {
+    @apply content-[''] absolute top-0 left-0 w-full h-8 bg-gradient-to-b from-transparent to-cyber-neon opacity-10 z-10 animate-scanline;
+  }
+  
   .cyber-text {
     @apply text-transparent bg-clip-text bg-gradient-to-r from-white via-cyber-neon to-white;
+  }
+  
+  .cyber-grid-bg {
+    @apply bg-cyber-grid bg-[size:50px_50px];
   }
   
   .glow {
