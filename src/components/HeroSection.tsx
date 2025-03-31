@@ -11,10 +11,10 @@ const HeroSection = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-10">
           <div className="w-full space-y-6">
             <h2 className="text-xl md:text-2xl font-mono text-cyber-neon light:text-cyber-neon-light">
-              <span className="text-flicker">&#60;Certified AWS Expert&#47;&#62;</span>
+              <span className="text-flicker">&#60;Certified AWS Professional&#47;&#62;</span>
             </h2>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold">
-              <span className="cyber-text leading-tight">WHITNEY LEJAKA</span>
+              <span className="cyber-text leading-tight">HI, I AM WHITNEY LEJAKA</span>
             </h1>
             <p className="text-xl md:text-2xl text-foreground/80 max-w-2xl light:text-slate-700">
               Cloud Solutions Architect designing scalable, efficient, and secure AWS infrastructures for the Web3 future.

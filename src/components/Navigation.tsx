@@ -1,13 +1,11 @@
 
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { Menu, X, Home, User, Briefcase, Phone, FileText, Wallet, Moon, Sun } from "lucide-react";
+import { Menu, X, Home, User, Briefcase, Phone, FileText, Wallet } from "lucide-react";
 import { cn } from '@/lib/utils';
-import { useTheme } from '@/contexts/ThemeContext';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { theme, toggleTheme } = useTheme();
   
   const navLinks = [
     { name: 'Home', href: '#home', icon: <Home className="w-5 h-5" /> },
@@ -37,31 +35,10 @@ const Navigation = () => {
               <span>{link.name}</span>
             </a>
           ))}
-          
-          {/* Theme Toggle */}
-          <Button 
-            variant="ghost" 
-            size="icon"
-            className="text-foreground hover:text-cyber-neon ml-2"
-            onClick={toggleTheme}
-            aria-label="Toggle theme"
-          >
-            {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-          </Button>
         </div>
         
         {/* Mobile Navigation Toggle */}
-        <div className="flex items-center gap-4 md:hidden">
-          <Button 
-            variant="ghost" 
-            size="icon"
-            className="text-foreground hover:text-cyber-neon"
-            onClick={toggleTheme}
-            aria-label="Toggle theme"
-          >
-            {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-          </Button>
-          
+        <div className="md:hidden">
           <Button 
             variant="ghost" 
             size="icon"
