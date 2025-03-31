@@ -1,12 +1,13 @@
 
 import React from 'react';
 import { Bitcoin, Wallet, Link, Code2 } from 'lucide-react';
+import ThreeDBackground from './ThreeDBackground';
 
 const HeroSection = () => {
   return (
-    <section id="home" className="min-h-screen relative overflow-hidden flex items-center pt-16 scanline">
-      <div className="absolute inset-0 bg-web3-gradient opacity-20 z-0"></div>
-      <div className="absolute inset-0 bg-cyber-grid-bg opacity-10 z-0"></div>
+    <section id="home" className="min-h-screen relative overflow-hidden flex items-center pt-16">
+      <ThreeDBackground />
+      <div className="absolute inset-0 bg-black/70 z-5"></div>
       <div className="container mx-auto px-4 z-10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-10">
           <div className="w-full space-y-6">
