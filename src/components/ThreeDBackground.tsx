@@ -37,8 +37,8 @@ const NetworkGrid = () => {
     }
   });
   
-  // Draw connections between nearby points
-  const lines = [];
+  // Calculate connections between nearby points
+  const connections = [];
   const connectionThreshold = spacing * 1.8;
   
   for (let i = 0; i < points.length; i++) {
@@ -52,7 +52,7 @@ const NetworkGrid = () => {
       );
       
       if (distance < connectionThreshold) {
-        lines.push([...p1, ...p2]);
+        connections.push([p1, p2]);
       }
     }
   }
@@ -67,17 +67,33 @@ const NetworkGrid = () => {
         </mesh>
       ))}
       
-      {/* Lines connecting nodes */}
-      {lines.map((line, i) => {
-        const start = new THREE.Vector3(line[0], line[1], line[2]);
-        const end = new THREE.Vector3(line[3], line[4], line[5]);
-        
-        const lineGeometry = new THREE.BufferGeometry().setFromPoints([start, end]);
+      {/* Connections between nodes */}
+      {connections.map((connection, i) => {
+        const [start, end] = connection;
         
         return (
-          <line key={`line-${i}`} geometry={lineGeometry}>
-            <lineBasicMaterial color="#00FF66" opacity={0.4} transparent />
-          </line>
+          <React.Fragment key={`line-${i}`}>
+            <mesh>
+              <boxGeometry 
+                args={[
+                  0.02, 
+                  0.02, 
+                  Math.sqrt(
+                    Math.pow(end[0] - start[0], 2) + 
+                    Math.pow(end[1] - start[1], 2) + 
+                    Math.pow(end[2] - start[2], 2)
+                  )
+                ]} 
+                position={[
+                  (start[0] + end[0]) / 2,
+                  (start[1] + end[1]) / 2,
+                  (start[2] + end[2]) / 2
+                ]}
+                lookAt={new THREE.Vector3(end[0], end[1], end[2])}
+              />
+              <meshBasicMaterial color="#00FF66" opacity={0.4} transparent />
+            </mesh>
+          </React.Fragment>
         );
       })}
     </group>
