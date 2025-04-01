@@ -1,6 +1,7 @@
 
 import React from 'react';
-import { Bitcoin, Wallet, Link, Code2 } from 'lucide-react';
+import { Bitcoin, Wallet, Link, Code2, FileDown } from 'lucide-react';
+import { Button } from "@/components/ui/button";
 
 const HeroSection = () => {
   return (
@@ -24,6 +25,24 @@ const HeroSection = () => {
               <a href="#contact" className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-black px-6 py-2 font-bold uppercase tracking-wider transition-all duration-300 rounded-sm shadow-[0_0_10px_rgba(255,255,255,0.3)] hover:shadow-[0_0_15px_rgba(255,255,255,0.5)] light:border-slate-800 light:text-slate-800 light:hover:bg-slate-800 light:hover:text-white light:shadow-[0_0_10px_rgba(0,0,0,0.2)]">
                 Get In Touch
               </a>
+              <Button 
+                variant="outline" 
+                className="group cyber-download-btn bg-transparent border-2 border-cyber-neon text-cyber-neon hover:bg-cyber-neon hover:text-black flex items-center gap-2 px-6 py-6 font-bold uppercase tracking-wider transition-all duration-300 rounded-sm shadow-[0_0_10px_rgba(0,255,102,0.3)] hover:shadow-[0_0_15px_rgba(0,255,102,0.5)] light:border-cyber-neon-light light:text-cyber-neon-light light:hover:bg-cyber-neon-light light:hover:text-white light:shadow-[0_0_10px_rgba(0,200,82,0.2)]"
+                onClick={() => {
+                  // In a real app, this would link to an actual CV file
+                  console.log('CV download clicked');
+                  // Example of how to trigger a download (would use actual file in production)
+                  const link = document.createElement('a');
+                  link.href = '#'; // Replace with actual CV file path
+                  link.download = 'Whitney_Lejaka_CV.pdf';
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                }}
+              >
+                <FileDown className="w-5 h-5 group-hover:animate-bounce" />
+                Download CV
+              </Button>
             </div>
           </div>
           

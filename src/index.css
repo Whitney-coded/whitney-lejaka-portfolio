@@ -99,6 +99,15 @@
     light:hover:text-white light:shadow-[0_0_10px_rgba(0,200,82,0.2)];
   }
   
+  .cyber-download-btn:hover .svg-icon {
+    animation: bounce 0.5s infinite alternate;
+  }
+  
+  @keyframes bounce {
+    from { transform: translateY(0); }
+    to { transform: translateY(-5px); }
+  }
+  
   .cyber-glitch {
     @apply relative overflow-hidden;
   }
