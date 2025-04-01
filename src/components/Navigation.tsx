@@ -1,8 +1,9 @@
 
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { Menu, X, Home, User, Briefcase, Phone, FileText, Wallet } from "lucide-react";
+import { Menu, X, Home, User, Briefcase, Phone, FileText, Laptop } from "lucide-react";
 import { cn } from '@/lib/utils';
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,9 +19,12 @@ const Navigation = () => {
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-cyber-black/80 backdrop-blur-md border-b border-cyber-neon/10 dark:bg-cyber-black/80 light:bg-white/80 light:border-slate-200/20">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <a href="#" className="cyber-text text-2xl font-bold tracking-wider flex items-center gap-2">
-          <Wallet className="h-6 w-6" />
-          <span>WHITNEY.LEJ</span>
+        <a href="#" className="cyber-text text-2xl flex items-center gap-2 group">
+          <Avatar className="h-10 w-10 border-2 border-cyber-neon shadow-[0_0_10px_rgba(0,255,102,0.3)] transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(0,255,102,0.5)]">
+            <AvatarImage src="https://github.com/shadcn.png" alt="Whitney Lejaka" />
+            <AvatarFallback className="bg-cyber-black text-cyber-neon">WL</AvatarFallback>
+          </Avatar>
+          <span className="font-bold tracking-wider hidden sm:inline-block">WHITNEY.LEJ</span>
         </a>
         
         {/* Desktop Navigation */}
