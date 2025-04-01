@@ -12,7 +12,7 @@ const HeroSection = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-10">
           <div className="w-full md:w-1/2 space-y-6">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold">
-              <span className="cyber-text leading-tight">HI, I AM WHITNEY LEJAKA</span>
+              <span className="cyber-text leading-tight">WHITNEY</span>
             </h1>
             <h2 className="text-xl md:text-2xl font-mono text-cyber-neon light:text-cyber-neon-light">
               <span className="text-flicker">&#60;Certified AWS Professional&#47;&#62;</span>
