@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { Menu, X, Home, User, Briefcase, Phone, FileText, Laptop } from "lucide-react";
+import { Menu, X, Home, User, Briefcase, Phone, Laptop } from "lucide-react";
 import { cn } from '@/lib/utils';
 
 const Navigation = () => {
@@ -11,7 +11,6 @@ const Navigation = () => {
     { name: 'Home', href: '#home', icon: <Home className="w-5 h-5" /> },
     { name: 'About', href: '#about', icon: <User className="w-5 h-5" /> },
     { name: 'Projects', href: '#projects', icon: <Briefcase className="w-5 h-5" /> },
-    { name: 'Blog', href: '#blog', icon: <FileText className="w-5 h-5" /> },
     { name: 'Contact', href: '#contact', icon: <Phone className="w-5 h-5" /> },
   ];
 

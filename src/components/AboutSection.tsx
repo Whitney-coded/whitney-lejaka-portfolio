@@ -81,13 +81,7 @@ const AboutSection = () => {
             <h3 className="text-2xl text-cyber-neon font-mono mb-6">My Story</h3>
             <div className="space-y-4 text-lg">
               <p>
-                With a strong foundation in IT infrastructure and a fascination with cloud technologies, I've dedicated my career to mastering AWS services and solutions architecture.
-              </p>
-              <p>
-                As a certified AWS Cloud Practitioner and Solutions Architect, I combine technical expertise with business acumen to design cloud environments that are not only technically sound but also aligned with organizational goals and cost efficiency.
-              </p>
-              <p>
-                I'm particularly passionate about automation, security, and leveraging the full potential of cloud services to drive digital transformation. When I'm not architecting cloud solutions, I'm sharing my knowledge through my blog and staying ahead of the rapidly evolving cloud landscape.
+                I have been on a learning journey with ALX Africa, focusing on AWS Cloud Computing. I am preparing to take the AWS Solutions Architect exam soon and am currently enrolled in a Software Engineering scholarship with Power Learn Project.
               </p>
             </div>
           </div>
