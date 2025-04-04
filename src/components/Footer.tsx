@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ArrowUp, Wallet, Bitcoin } from 'lucide-react';
+import { ArrowUp, Wallet, Bitcoin, Github, Linkedin } from 'lucide-react';
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -28,7 +28,6 @@ const Footer = () => {
             <a href="#home" className="dark:text-foreground/70 light:text-slate-600 hover:text-cyber-neon light:hover:text-cyber-neon-light transition-colors duration-300">Home</a>
             <a href="#about" className="dark:text-foreground/70 light:text-slate-600 hover:text-cyber-neon light:hover:text-cyber-neon-light transition-colors duration-300">About</a>
             <a href="#projects" className="dark:text-foreground/70 light:text-slate-600 hover:text-cyber-neon light:hover:text-cyber-neon-light transition-colors duration-300">Projects</a>
-            <a href="#blog" className="dark:text-foreground/70 light:text-slate-600 hover:text-cyber-neon light:hover:text-cyber-neon-light transition-colors duration-300">Blog</a>
             <a href="#contact" className="dark:text-foreground/70 light:text-slate-600 hover:text-cyber-neon light:hover:text-cyber-neon-light transition-colors duration-300">Contact</a>
           </div>
           
