@@ -47,7 +47,7 @@ const ContactSection = () => {
     {
       icon: <Mail className="w-5 h-5 text-cyber-neon" />,
       label: "Email",
-      value: "whitney@lejaka.com"
+      value: "whitneylejaka@gmail.com"
     },
     {
       icon: <MapPin className="w-5 h-5 text-cyber-magenta" />,

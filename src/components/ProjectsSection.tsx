@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { ExternalLink, Github, Server, Database, Cloud, Shield } from 'lucide-react';
+import { ExternalLink, Github, Server, Database, Cloud, Shield, Network } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface ProjectCardProps {
@@ -113,6 +112,16 @@ const ProjectCard = ({
 const ProjectsSection = () => {
   const projects = [
     {
+      title: "VPC Architecture for Small Business",
+      description: "Created a secure VPC architecture for a small business during a hackathon. Implemented a multi-tier network design with public and private subnets across multiple availability zones, ensuring high availability and security for the business infrastructure.",
+      tags: ["AWS VPC", "Network Security", "High Availability", "Multi-AZ", "Subnets"],
+      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&auto=format&fit=crop",
+      demoLink: "http://squad-project-ec2elites.s3-website-us-east-1.amazonaws.com/",
+      codeLink: "https://github.com/Whitney-coded",
+      primaryIcon: <Network className="w-20 h-20 text-cyber-neon" />,
+      reverse: false
+    },
+    {
       title: "Serverless Multi-Tier Application",
       description: "Designed and implemented a highly scalable serverless architecture using AWS Lambda, API Gateway, and DynamoDB with authentication via Cognito. The solution included CI/CD pipeline with AWS CodePipeline and infrastructure as code using CloudFormation.",
       tags: ["AWS Lambda", "API Gateway", "DynamoDB", "CloudFormation", "Cognito"],
@@ -120,7 +129,7 @@ const ProjectsSection = () => {
       demoLink: "#",
       codeLink: "#",
       primaryIcon: <Server className="w-20 h-20 text-cyber-neon" />,
-      reverse: false
+      reverse: true
     },
     {
       title: "Cloud-Native Microservices Platform",
@@ -129,7 +138,7 @@ const ProjectsSection = () => {
       image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&auto=format&fit=crop",
       demoLink: "#",
       primaryIcon: <Cloud className="w-20 h-20 text-cyber-magenta" />,
-      reverse: true
+      reverse: false
     },
     {
       title: "Secure Data Warehouse Solution",
@@ -139,15 +148,6 @@ const ProjectsSection = () => {
       demoLink: "#",
       codeLink: "#",
       primaryIcon: <Database className="w-20 h-20 text-cyber-neon" />,
-      reverse: false
-    },
-    {
-      title: "Enterprise Identity Management",
-      description: "Implemented a robust AWS identity management solution for a large enterprise, including federation with corporate Active Directory, fine-grained IAM policies, and security monitoring with CloudTrail and GuardDuty.",
-      tags: ["IAM", "Active Directory", "Federation", "CloudTrail", "GuardDuty"],
-      image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&auto=format&fit=crop",
-      demoLink: "#",
-      primaryIcon: <Shield className="w-20 h-20 text-cyber-magenta" />,
       reverse: true
     }
   ];
