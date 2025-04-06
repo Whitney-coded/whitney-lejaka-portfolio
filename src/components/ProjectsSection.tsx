@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { ExternalLink, Github, Server, Database, Cloud, Shield, Network } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -88,7 +89,7 @@ const ProjectCard = ({
               )}
             >
               <ExternalLink className="w-4 h-4" />
-              Live Demo
+              View
             </a>
           )}
           
