@@ -1,8 +1,11 @@
 
 import React from 'react';
-import { ArrowUp, Wallet, Bitcoin, Github, Linkedin } from 'lucide-react';
+import { ArrowUp, Laptop, Github, Linkedin, Mail, Twitter } from 'lucide-react';
+import { useTheme } from '@/contexts/ThemeContext';
 
 const Footer = () => {
+  const { theme, toggleTheme } = useTheme();
+  
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -11,46 +14,57 @@ const Footer = () => {
   };
 
   return (
-    <footer className="dark:bg-black light:bg-slate-50 py-10 border-t dark:border-cyber-neon/10 light:border-slate-200">
+    <footer className="py-20 border-t border-border/60">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-6 md:mb-0">
-            <a href="#" className="cyber-text text-2xl font-bold tracking-wider flex items-center gap-2">
-              <Wallet className="h-6 w-6" />
-              <span>WHITNEY.LEJ</span>
+        <div className="flex flex-col md:flex-row justify-between items-center mb-12">
+          <div className="mb-8 md:mb-0 text-center md:text-left">
+            <a href="#" className="flex items-center justify-center md:justify-start gap-2 mb-4">
+              <span className="w-10 h-10 rounded-md bg-primary flex items-center justify-center">
+                <Laptop className="h-6 w-6 text-primary-foreground" />
+              </span>
+              <span className="modern-gradient font-bold text-2xl">WHITNEY.LEJ</span>
             </a>
-            <p className="dark:text-foreground/60 light:text-slate-600 mt-2">
-              AWS Solutions Architect & Cloud Practitioner
+            <p className="text-muted-foreground max-w-sm">
+              AWS Solutions Architect & Cloud Practitioner building the infrastructure of tomorrow.
             </p>
           </div>
           
-          <div className="flex flex-wrap justify-center gap-8 mb-6 md:mb-0">
-            <a href="#home" className="dark:text-foreground/70 light:text-slate-600 hover:text-cyber-neon light:hover:text-cyber-neon-light transition-colors duration-300">Home</a>
-            <a href="#about" className="dark:text-foreground/70 light:text-slate-600 hover:text-cyber-neon light:hover:text-cyber-neon-light transition-colors duration-300">About</a>
-            <a href="#projects" className="dark:text-foreground/70 light:text-slate-600 hover:text-cyber-neon light:hover:text-cyber-neon-light transition-colors duration-300">Projects</a>
-            <a href="#contact" className="dark:text-foreground/70 light:text-slate-600 hover:text-cyber-neon light:hover:text-cyber-neon-light transition-colors duration-300">Contact</a>
+          <div className="flex flex-col items-center md:items-end gap-6">
+            <div className="flex gap-4">
+              <a href="https://github.com/Whitney-coded" className="w-10 h-10 rounded-full border border-border/60 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-colors">
+                <Github className="w-5 h-5" />
+              </a>
+              <a href="#" className="w-10 h-10 rounded-full border border-border/60 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-colors">
+                <Linkedin className="w-5 h-5" />
+              </a>
+              <a href="mailto:whitneylejaka@gmail.com" className="w-10 h-10 rounded-full border border-border/60 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-colors">
+                <Mail className="w-5 h-5" />
+              </a>
+              <a href="#" className="w-10 h-10 rounded-full border border-border/60 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-colors">
+                <Twitter className="w-5 h-5" />
+              </a>
+            </div>
+            
+            <button 
+              onClick={scrollToTop}
+              className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
+            >
+              <ArrowUp className="w-5 h-5" />
+            </button>
           </div>
-          
-          <button 
-            onClick={scrollToTop}
-            className="w-10 h-10 rounded-sm dark:bg-black light:bg-white dark:border-cyber-neon/30 light:border-slate-300 border flex items-center justify-center dark:text-cyber-neon light:text-cyber-neon-light dark:hover:bg-cyber-neon light:hover:bg-cyber-neon-light hover:text-black light:hover:text-white transition-colors duration-300"
-          >
-            <ArrowUp className="w-5 h-5" />
-          </button>
         </div>
         
-        <div className="border-t dark:border-cyber-neon/10 light:border-slate-200 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="dark:text-foreground/60 light:text-slate-500 text-sm mb-4 md:mb-0">
+        <div className="pt-8 border-t border-border/20 flex flex-col md:flex-row justify-between items-center">
+          <div className="flex flex-wrap justify-center md:justify-start gap-8 mb-6 md:mb-0">
+            <a href="#home" className="text-muted-foreground hover:text-primary transition-colors duration-300">Home</a>
+            <a href="#about" className="text-muted-foreground hover:text-primary transition-colors duration-300">About</a>
+            <a href="#projects" className="text-muted-foreground hover:text-primary transition-colors duration-300">Projects</a>
+            <a href="#contact" className="text-muted-foreground hover:text-primary transition-colors duration-300">Contact</a>
+          </div>
+          
+          <p className="text-muted-foreground text-sm">
             &copy; {new Date().getFullYear()} Whitney Lejaka. All rights reserved.
           </p>
-          <div className="flex space-x-6">
-            <a href="#" className="dark:text-foreground/60 light:text-slate-500 hover:text-cyber-neon light:hover:text-cyber-neon-light text-sm transition-colors duration-300">
-              Privacy Policy
-            </a>
-            <a href="#" className="dark:text-foreground/60 light:text-slate-500 hover:text-cyber-neon light:hover:text-cyber-neon-light text-sm transition-colors duration-300">
-              Terms of Service
-            </a>
-          </div>
         </div>
       </div>
     </footer>

@@ -5,6 +5,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { ThemeProvider } from "@/contexts/ThemeContext";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import LoadingScreen from "./components/LoadingScreen";
@@ -25,8 +26,8 @@ const App = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <div className="dark">
+      <ThemeProvider>
+        <TooltipProvider>
           <Toaster />
           <Sonner />
           {isLoading ? (
@@ -40,8 +41,8 @@ const App = () => {
               </Routes>
             </BrowserRouter>
           )}
-        </div>
-      </TooltipProvider>
+        </TooltipProvider>
+      </ThemeProvider>
     </QueryClientProvider>
   );
 };

@@ -1,11 +1,27 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
-import { Menu, X, Home, User, Briefcase, Phone, Laptop } from "lucide-react";
+import { Menu, X, Sun, Moon, Home, User, Briefcase, Phone, Laptop } from "lucide-react";
 import { cn } from '@/lib/utils';
+import { useTheme } from '@/contexts/ThemeContext';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const { theme, toggleTheme } = useTheme();
+  
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   
   const navLinks = [
     { name: 'Home', href: '#home', icon: <Home className="w-5 h-5" /> },
@@ -15,10 +31,16 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-cyber-black/80 backdrop-blur-md border-b border-cyber-neon/10 dark:bg-cyber-black/80 light:bg-white/80 light:border-slate-200/20">
+    <nav className={cn(
+      "fixed top-0 left-0 w-full z-50 transition-all duration-300",
+      scrolled ? "bg-background/80 backdrop-blur-md border-b border-border/40" : "bg-transparent"
+    )}>
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <a href="#" className="cyber-text text-2xl flex items-center gap-2 group">
-          <Laptop className="h-6 w-6 text-cyber-neon" />
+        <a href="#" className="text-foreground font-bold text-2xl flex items-center gap-2 transition-colors">
+          <span className="w-10 h-10 rounded-md bg-primary flex items-center justify-center">
+            <Laptop className="h-6 w-6 text-primary-foreground" />
+          </span>
+          <span className="modern-gradient font-bold">WHITNEY.LEJ</span>
         </a>
         
         {/* Desktop Navigation */}
@@ -27,20 +49,41 @@ const Navigation = () => {
             <a 
               key={link.name}
               href={link.href}
-              className="text-foreground hover:text-cyber-neon transition-colors duration-300 flex items-center gap-2 cyber-glitch light:text-slate-800 light:hover:text-cyber-neon"
+              className="text-foreground/80 hover:text-primary transition-colors duration-300 flex items-center gap-2 group"
             >
               {link.icon}
-              <span>{link.name}</span>
+              <span className="relative group-hover:text-primary transition-colors duration-300">
+                {link.name}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+              </span>
             </a>
           ))}
-        </div>
-        
-        {/* Mobile Navigation Toggle */}
-        <div className="md:hidden">
+          
           <Button 
             variant="ghost" 
             size="icon"
-            className="text-foreground hover:text-cyber-neon"
+            onClick={toggleTheme}
+            className="rounded-full"
+          >
+            {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+          </Button>
+        </div>
+        
+        {/* Mobile Navigation Toggle */}
+        <div className="md:hidden flex items-center gap-2">
+          <Button 
+            variant="ghost" 
+            size="icon"
+            onClick={toggleTheme}
+            className="rounded-full"
+          >
+            {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+          </Button>
+
+          <Button 
+            variant="ghost" 
+            size="icon"
+            className="text-foreground"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -51,7 +94,7 @@ const Navigation = () => {
       {/* Mobile Navigation Menu */}
       <div 
         className={cn(
-          "fixed inset-0 bg-cyber-black/95 flex flex-col justify-center items-center space-y-10 z-40 transition-all duration-300 md:hidden light:bg-white/95",
+          "fixed inset-0 bg-background/95 flex flex-col justify-center items-center space-y-10 z-40 transition-all duration-300 md:hidden",
           isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
         )}
       >
@@ -59,7 +102,7 @@ const Navigation = () => {
           <a 
             key={link.name} 
             href={link.href}
-            className="text-xl font-semibold text-foreground hover:text-cyber-neon transition-colors duration-300 flex items-center gap-3 cyber-glitch light:text-slate-800 light:hover:text-cyber-neon"
+            className="text-xl font-semibold text-foreground hover:text-primary transition-colors duration-300 flex items-center gap-3"
             onClick={() => setIsOpen(false)}
           >
             {link.icon}

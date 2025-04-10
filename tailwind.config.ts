@@ -54,14 +54,15 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				cyber: {
-					"black": "#000000",
-					"dark-blue": "#111111", 
-					"blue": "#222222",
-					"neon": "#00FF66",
-					"neon-light": "#00C852", // Slightly darker for light mode
-					"magenta": "#ffffff",
-					"yellow": "#ffffff"
+				modern: {
+					"indigo": "#4F46E5",
+					"indigo-light": "#818CF8", 
+					"indigo-dark": "#3730A3",
+					"slate": "#0F172A",
+					"slate-light": "#1E293B",
+					"orange": "#F97316",
+					"teal": "#14B8A6",
+					"rose": "#F43F5E"
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
@@ -88,52 +89,54 @@ export default {
 					from: { height: 'var(--radix-accordion-content-height)' },
 					to: { height: '0' }
 				},
-				'glitch': {
-					'0%': { transform: 'translate(0)' },
-					'20%': { transform: 'translate(-2px, 2px)' },
-					'40%': { transform: 'translate(-2px, -2px)' },
-					'60%': { transform: 'translate(2px, 2px)' },
-					'80%': { transform: 'translate(2px, -2px)' },
-					'100%': { transform: 'translate(0)' }
-				},
-				'scanline': {
-					'0%': { transform: 'translateY(0%)' },
-					'100%': { transform: 'translateY(100%)' }
-				},
-				'text-flicker': {
-					'0%': { opacity: '0.8' },
-					'10%': { opacity: '0.1' },
-					'20%': { opacity: '0.8' },
-					'30%': { opacity: '1' },
-					'40%': { opacity: '0.8' },
-					'50%': { opacity: '0.4' },
-					'60%': { opacity: '1' },
-					'70%': { opacity: '0.8' },
-					'80%': { opacity: '0.2' },
-					'90%': { opacity: '0.8' },
+				'fade-in': {
+					'0%': { opacity: '0' },
 					'100%': { opacity: '1' }
+				},
+				'fade-out': {
+					'0%': { opacity: '1' },
+					'100%': { opacity: '0' }
+				},
+				'slide-up': {
+					'0%': { transform: 'translateY(20px)', opacity: '0' },
+					'100%': { transform: 'translateY(0)', opacity: '1' }
+				},
+				'slide-down': {
+					'0%': { transform: 'translateY(-20px)', opacity: '0' },
+					'100%': { transform: 'translateY(0)', opacity: '1' }
+				},
+				'text-shimmer': {
+					'0%': { backgroundPosition: '0% 50%' },
+					'50%': { backgroundPosition: '100% 50%' },
+					'100%': { backgroundPosition: '0% 50%' }
 				},
 				'float': {
 					'0%': { transform: 'translateY(0px)' },
 					'50%': { transform: 'translateY(-10px)' },
 					'100%': { transform: 'translateY(0px)' }
+				},
+				'blob': {
+					'0%': { transform: 'scale(1)' },
+					'33%': { transform: 'scale(1.1)' },
+					'66%': { transform: 'scale(0.9)' },
+					'100%': { transform: 'scale(1)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'glitch': 'glitch 0.5s linear infinite',
-				'scanline': 'scanline 8s linear infinite',
-				'text-flicker': 'text-flicker 2s linear infinite',
-				'float': 'float 6s ease-in-out infinite'
+				'fade-in': 'fade-in 0.5s ease-out',
+				'fade-out': 'fade-out 0.5s ease-out',
+				'slide-up': 'slide-up 0.5s ease-out',
+				'slide-down': 'slide-down 0.5s ease-out',
+				'text-shimmer': 'text-shimmer 3s ease infinite',
+				'float': 'float 6s ease-in-out infinite',
+				'blob': 'blob 7s infinite'
 			},
 			backgroundImage: {
-				'cyber-grid': 'linear-gradient(to right, rgba(0, 255, 102, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 255, 102, 0.05) 1px, transparent 1px)',
-				'cyber-grid-light': 'linear-gradient(to right, rgba(0, 200, 82, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 200, 82, 0.05) 1px, transparent 1px)',
-				'cyber-glow': 'radial-gradient(circle, rgba(0, 255, 102, 0.15) 0%, rgba(0, 0, 0, 0) 70%)',
-				'cyber-glow-light': 'radial-gradient(circle, rgba(0, 200, 82, 0.15) 0%, rgba(255, 255, 255, 0) 70%)',
-				'web3-gradient': 'linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 255, 102, 0.1) 100%)',
-				'web3-gradient-light': 'linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(0, 200, 82, 0.1) 100%)'
+				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+				'gradient-dots': 'radial-gradient(rgba(79, 70, 229, 0.1) 1px, transparent 1px)',
+				'gradient-light-dots': 'radial-gradient(rgba(79, 70, 229, 0.05) 1px, transparent 1px)'
 			}
 		}
 	},

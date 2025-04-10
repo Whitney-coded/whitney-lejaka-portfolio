@@ -21,20 +21,21 @@ const LoadingScreen = () => {
   }, []);
   
   return (
-    <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-cyber-dark-blue light:bg-white gap-4">
-      <div className="relative flex items-center justify-center">
-        <Loader size={48} className="text-cyber-neon light:text-cyber-neon-light animate-spin" />
+    <div className="fixed inset-0 z-50 flex flex-col items-center justify-center gap-6 bg-background">
+      <div className="relative w-16 h-16">
+        <div className="blob w-32 h-32 -left-8 -top-8 opacity-60"></div>
+        <Loader size={64} className="text-primary animate-spin" />
       </div>
-      <h1 className="text-2xl font-mono text-cyber-neon light:text-cyber-neon-light animate-pulse">
-        INITIALIZING PORTFOLIO
+      <h1 className="text-2xl font-bold modern-gradient">
+        WHITNEY LEJAKA
       </h1>
       <div className="w-64 h-2 bg-muted rounded-full overflow-hidden">
         <div 
-          className="h-full bg-cyber-neon light:bg-cyber-neon-light transition-all duration-150 ease-out"
+          className="h-full bg-primary transition-all duration-150 ease-out"
           style={{ width: `${loadingProgress}%` }}
         />
       </div>
-      <p className="text-foreground/70 text-sm">{loadingProgress}%</p>
+      <p className="text-muted-foreground text-sm">{loadingProgress}%</p>
     </div>
   );
 };

@@ -1,70 +1,69 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 0%;
-    --foreground: 0 0% 95%;
+    --background: 226 100% 99%;
+    --foreground: 224 71% 4%;
 
-    --card: 0 0% 5%;
-    --card-foreground: 0 0% 95%;
-
-    --popover: 0 0% 0%;
-    --popover-foreground: 0 0% 95%;
-
-    --primary: 140 100% 50%;
-    --primary-foreground: 0 0% 0%;
-
-    --secondary: 0 0% 100%;
-    --secondary-foreground: 0 0% 0%;
-
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 70%;
-
-    --accent: 140 100% 50%;
-    --accent-foreground: 0 0% 0%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 95%;
-
-    --border: 140 100% 50% / 20%;
-    --input: 0 0% 15%;
-    --ring: 140 100% 50%;
-
-    --radius: 0.25rem;
-  }
-
-  .light {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 10%;
-
-    --card: 0 0% 98%;
-    --card-foreground: 0 0% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 224 71% 4%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 10%;
+    --popover-foreground: 224 71% 4%;
 
-    --primary: 140 100% 40%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 246 83% 59%;
+    --primary-foreground: 210 40% 98%;
 
-    --secondary: 0 0% 15%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
 
-    --muted: 0 0% 90%;
-    --muted-foreground: 0 0% 40%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 140 100% 40%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive-foreground: 210 40% 98%;
 
-    --border: 140 100% 40% / 20%;
-    --input: 0 0% 90%;
-    --ring: 140 100% 40%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 246 83% 59%;
 
-    --radius: 0.25rem;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 224 71% 4%;
+    --foreground: 210 40% 98%;
+
+    --card: 224 71% 4%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 224 71% 4%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 246 83% 59%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 222.2 47.4% 11.2%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 246 83% 59%;
   }
 }
 
@@ -75,293 +74,102 @@
 
   body {
     @apply bg-background text-foreground;
-    @apply dark:bg-[url('/grid-bg.png')] dark:bg-repeat;
-    @apply light:bg-white light:bg-none;
+    @apply dark:bg-[size:20px_20px] dark:bg-gradient-dots;
+    @apply light:bg-[size:20px_20px] light:bg-gradient-light-dots;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Share Tech Mono', monospace;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    @apply font-bold;
   }
 }
 
 @layer components {
-  .cyber-border {
-    @apply relative border-2 border-cyber-neon rounded-sm shadow-[0_0_10px_rgba(0,255,102,0.3)] 
-           light:shadow-[0_0_10px_rgba(0,200,82,0.3)];
+  .modern-gradient {
+    @apply bg-gradient-to-r from-modern-indigo via-modern-teal to-modern-rose bg-clip-text text-transparent;
   }
   
-  .cyber-button {
-    @apply relative px-6 py-2 bg-transparent text-cyber-neon border-2 border-cyber-neon font-bold uppercase tracking-wider
-    hover:bg-cyber-neon hover:text-cyber-black hover:shadow-[0_0_15px_rgba(0,255,102,0.5)] 
-    transition-all duration-300 rounded-sm shadow-[0_0_10px_rgba(0,255,102,0.2)]
-    light:text-cyber-neon-light light:border-cyber-neon-light light:hover:bg-cyber-neon-light 
-    light:hover:text-white light:shadow-[0_0_10px_rgba(0,200,82,0.2)];
+  .modern-card {
+    @apply relative rounded-xl border border-border/40 p-6 
+      dark:bg-black/30 dark:backdrop-blur-xl 
+      light:bg-white/80 light:backdrop-blur-xl
+      transition-all duration-300 hover:shadow-lg hover:shadow-primary/5;
   }
-  
-  .cyber-download-btn:hover .svg-icon {
-    animation: bounce 0.5s infinite alternate;
-  }
-  
-  @keyframes bounce {
-    from { transform: translateY(0); }
-    to { transform: translateY(-5px); }
-  }
-  
-  .cyber-glitch {
-    @apply relative overflow-hidden;
-  }
-  
-  .cyber-glitch:hover::before,
-  .cyber-glitch:hover::after {
-    @apply content-[''] absolute top-0 left-0 w-full h-full opacity-60;
-  }
-  
-  .cyber-glitch:hover::before {
-    @apply bg-cyber-neon -ml-2 animate-glitch dark:bg-cyber-neon light:bg-cyber-neon-light;
-    mix-blend-mode: difference;
-  }
-  
-  .cyber-glitch:hover::after {
-    @apply bg-white ml-2 animate-glitch;
-    animation-delay: -0.1s;
-    mix-blend-mode: difference;
-  }
-  
-  .scanline::before {
-    @apply content-[''] absolute top-0 left-0 w-full h-8 bg-gradient-to-b from-transparent to-cyber-neon opacity-10 z-10 animate-scanline 
-           light:to-cyber-neon-light;
-  }
-  
-  .cyber-text {
-    @apply text-transparent bg-clip-text bg-gradient-to-r from-white via-cyber-neon to-white 
-           light:from-slate-800 light:via-cyber-neon-light light:to-slate-800;
-  }
-  
-  .cyber-grid-bg {
-    @apply dark:bg-cyber-grid dark:bg-[size:50px_50px] light:bg-cyber-grid-light light:bg-[size:50px_50px];
-  }
-  
-  .glow {
-    @apply relative;
-  }
-  
-  .glow::after {
+
+  .modern-card::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     border-radius: inherit;
-    @apply dark:shadow-[0_0_30px_5px_theme('colors.cyber.neon')] 
-           light:shadow-[0_0_30px_5px_theme('colors.cyber.neon-light')];
+    padding: 1px;
+    background: linear-gradient(to right, hsl(var(--primary)), transparent);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
     opacity: 0;
     transition: opacity 0.3s ease;
   }
   
-  .glow:hover::after {
-    opacity: 0.5;
-  }
-  
-  .text-flicker {
-    @apply animate-text-flicker;
-  }
-  
-  .web3-card {
-    @apply relative bg-black border border-cyber-neon/20 rounded-lg p-6 overflow-hidden transition-all duration-300 
-           light:bg-white light:border-cyber-neon-light/20;
-    background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(17, 17, 17, 0.9) 100%);
-    @apply light:bg-none light:bg-gradient-to-br light:from-white light:to-gray-100;
-  }
-  
-  .web3-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(0, 255, 102, 0.1) 100%);
-    @apply light:bg-gradient-to-br light:from-white/10 light:to-cyber-neon-light/10;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 0;
-  }
-  
-  .web3-card:hover::before {
+  .modern-card:hover::before {
     opacity: 1;
   }
   
-  .web3-card::after {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(0, 255, 102, 0.5) 100%);
-    @apply light:bg-gradient-to-br light:from-white/50 light:to-cyber-neon-light/50;
-    z-index: -1;
-    border-radius: inherit;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+  .modern-button {
+    @apply relative inline-flex items-center justify-center px-6 py-3 overflow-hidden font-medium text-modern-indigo dark:text-modern-indigo-light
+      border border-modern-indigo dark:border-modern-indigo-light rounded-md shadow-md
+      dark:bg-transparent light:bg-white/80
+      transition-all duration-300 
+      hover:bg-modern-indigo hover:text-white;
   }
   
-  .web3-card:hover::after {
-    opacity: 0.3;
+  .modern-button-secondary {
+    @apply relative inline-flex items-center justify-center px-6 py-3 overflow-hidden font-medium 
+      text-white border border-white/20 rounded-md shadow-md
+      bg-white/10 backdrop-blur-sm
+      transition-all duration-300 
+      hover:bg-white hover:text-modern-slate;
   }
   
-  .floating {
-    @apply animate-float;
+  .modern-button-outline {
+    @apply relative inline-flex items-center justify-center px-6 py-3 overflow-hidden font-medium
+      text-modern-indigo dark:text-modern-indigo-light rounded-md
+      border border-modern-indigo dark:border-modern-indigo-light
+      transition-all duration-300 
+      hover:bg-modern-indigo/10;
   }
   
-  .cyber-object-container {
-    position: relative;
-    width: 200px;
-    height: 200px;
-    perspective: 1000px;
-    transform-style: preserve-3d;
-    animation: containerRotate 20s infinite linear;
+  .text-shimmer {
+    @apply bg-gradient-to-r from-modern-indigo via-modern-teal to-modern-rose bg-clip-text text-transparent bg-[length:200%_auto] animate-text-shimmer;
+  }
+
+  .blob {
+    @apply absolute bg-gradient-to-br from-modern-indigo-light/30 to-modern-teal/30 blur-3xl rounded-full animate-blob;
+  }
+
+  .project-image-overlay {
+    @apply absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-100 transition-opacity duration-300 group-hover:opacity-30;
   }
   
-  .cyber-cube {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    transform-style: preserve-3d;
-    animation: float 6s ease-in-out infinite, cubeRotate 15s infinite linear;
+  /* Hero section blob animation */
+  .hero-blob {
+    @apply absolute bg-gradient-radial from-modern-indigo-light/20 to-transparent rounded-full blur-3xl -z-10;
   }
   
-  .face {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    background: rgba(0, 255, 102, 0.2);
-    border: 2px solid rgba(0, 255, 102, 0.8);
-    box-shadow: 0 0 20px rgba(0, 255, 102, 0.5);
-    backface-visibility: visible;
+  .blob-animate-delay-1 {
+    animation-delay: 0s;
   }
   
-  .front { transform: translateZ(50px); }
-  .back { transform: rotateY(180deg) translateZ(50px); }
-  .right { transform: rotateY(90deg) translateZ(50px); }
-  .left { transform: rotateY(-90deg) translateZ(50px); }
-  .top { transform: rotateX(90deg) translateZ(50px); }
-  .bottom { transform: rotateX(-90deg) translateZ(50px); }
-  
-  .inner-cube {
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    transform-style: preserve-3d;
-    transform: translateX(20px) translateY(20px) translateZ(0px);
-    animation: innerCubeRotate 8s infinite linear reverse;
+  .blob-animate-delay-2 {
+    animation-delay: 1s;
   }
   
-  .inner-face {
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  .blob-animate-delay-3 {
+    animation-delay: 2s;
   }
   
-  .inner-face.front { transform: translateZ(30px); }
-  .inner-face.back { transform: rotateY(180deg) translateZ(30px); }
-  .inner-face.right { transform: rotateY(90deg) translateZ(30px); }
-  .inner-face.left { transform: rotateY(-90deg) translateZ(30px); }
-  .inner-face.top { transform: rotateX(90deg) translateZ(30px); }
-  .inner-face.bottom { transform: rotateX(-90deg) translateZ(30px); }
-  
-  .cyber-pyramid {
-    position: absolute;
-    width: 70px;
-    height: 70px;
-    transform-style: preserve-3d;
-    transform: translateX(-80px) translateY(40px);
-    animation: pyramidRotate 10s infinite linear;
-  }
-  
-  .pyramid-face {
-    position: absolute;
-    background: rgba(213, 70, 239, 0.2);
-    border: 1px solid rgba(213, 70, 239, 0.8);
-    box-shadow: 0 0 15px rgba(213, 70, 239, 0.5);
-  }
-  
-  .pyramid-face.front {
-    width: 0;
-    height: 0;
-    border-left: 35px solid transparent;
-    border-right: 35px solid transparent;
-    border-bottom: 70px solid rgba(213, 70, 239, 0.2);
-    transform: translateZ(0) rotateX(-30deg);
-  }
-  
-  .pyramid-face.right {
-    width: 0;
-    height: 0;
-    border-left: 35px solid transparent;
-    border-right: 35px solid transparent;
-    border-bottom: 70px solid rgba(213, 70, 239, 0.2);
-    transform: rotateY(90deg) rotateX(-30deg);
-  }
-  
-  .pyramid-face.left {
-    width: 0;
-    height: 0;
-    border-left: 35px solid transparent;
-    border-right: 35px solid transparent;
-    border-bottom: 70px solid rgba(213, 70, 239, 0.2);
-    transform: rotateY(-90deg) rotateX(-30deg);
-  }
-  
-  .pyramid-face.bottom {
-    width: 70px;
-    height: 70px;
-    background: rgba(213, 70, 239, 0.3);
-    transform: rotateX(90deg) translateZ(-35px);
-  }
-  
-  .glowing-ring {
-    position: absolute;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: 4px solid transparent;
-    border-top: 4px solid rgba(30, 174, 219, 0.8);
-    border-right: 4px solid rgba(0, 255, 102, 0.8);
-    border-bottom: 4px solid rgba(213, 70, 239, 0.8);
-    border-left: 4px solid rgba(255, 255, 255, 0.8);
-    box-shadow: 0 0 20px rgba(0, 255, 102, 0.5);
-    transform: rotateX(70deg);
-    animation: ringRotate 8s linear infinite;
-  }
-  
-  @keyframes containerRotate {
-    0% { transform: rotateY(0) rotateX(10deg); }
-    100% { transform: rotateY(360deg) rotateX(10deg); }
-  }
-  
-  @keyframes cubeRotate {
-    0% { transform: rotateY(0) rotateX(0) rotateZ(0); }
-    100% { transform: rotateY(360deg) rotateX(360deg) rotateZ(360deg); }
-  }
-  
-  @keyframes innerCubeRotate {
-    0% { transform: translateX(20px) translateY(20px) rotateY(0) rotateX(0); }
-    100% { transform: translateX(20px) translateY(20px) rotateY(360deg) rotateX(360deg); }
-  }
-  
-  @keyframes pyramidRotate {
-    0% { transform: translateX(-80px) translateY(40px) rotateY(0); }
-    100% { transform: translateX(-80px) translateY(40px) rotateY(360deg); }
-  }
-  
-  @keyframes ringRotate {
-    0% { transform: rotateX(70deg) rotateZ(0); }
-    100% { transform: rotateX(70deg) rotateZ(360deg); }
+  .blob-animate-delay-4 {
+    animation-delay: 3s;
   }
 }
