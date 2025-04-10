@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { FileDown } from 'lucide-react';
+import { FileDown, Code, FileCode } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
 const HeroSection = () => {
@@ -17,8 +17,19 @@ const HeroSection = () => {
             <h2 className="text-xl md:text-2xl font-mono text-cyber-neon light:text-cyber-neon-light">
               <span className="text-flicker">&#60;Certified AWS Professional&#47;&#62;</span>
             </h2>
+            <div className="flex flex-wrap justify-center gap-3 my-4">
+              <span className="px-3 py-1 bg-cyber-blue/20 border border-cyber-neon rounded-sm text-cyber-neon">
+                <Code className="w-4 h-4 inline mr-1" /> HTML
+              </span>
+              <span className="px-3 py-1 bg-cyber-blue/20 border border-cyber-magenta rounded-sm text-cyber-magenta">
+                <FileCode className="w-4 h-4 inline mr-1" /> CSS
+              </span>
+              <span className="px-3 py-1 bg-cyber-blue/20 border border-cyber-yellow rounded-sm text-cyber-yellow">
+                AWS
+              </span>
+            </div>
             <p className="text-xl md:text-2xl text-foreground/80 max-w-2xl light:text-slate-700 mx-auto">
-              I am an aspiring Solutions Architect who has earned the AWS Cloud Practitioner certification.
+              I am an aspiring Solutions Architect who has earned the AWS Cloud Practitioner certification, with expertise in HTML and CSS development.
             </p>
             <div className="pt-4 flex flex-wrap gap-4 justify-center">
               <a href="#projects" className="cyber-button">View Projects</a>

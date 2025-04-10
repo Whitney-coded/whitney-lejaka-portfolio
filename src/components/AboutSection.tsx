@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Award, Cloud, Database, Server, Shield, Code } from 'lucide-react';
+import { Award, Cloud, Database, Server, Shield, Code, FileCode, Layout, Palette, Globe } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface SkillCardProps {
@@ -32,10 +32,28 @@ const AboutSection = () => {
       className: "border-cyber-neon"
     },
     {
+      icon: <Code className="w-8 h-8" />,
+      title: "HTML Development",
+      description: "Creating semantically correct, accessible, and well-structured HTML for modern web applications.",
+      className: "border-cyber-yellow"
+    },
+    {
+      icon: <FileCode className="w-8 h-8" />,
+      title: "CSS Styling",
+      description: "Crafting responsive and visually appealing designs with CSS, including animations and layouts.",
+      className: "border-cyber-magenta"
+    },
+    {
       icon: <Server className="w-8 h-8" />,
       title: "Infrastructure as Code",
       description: "Building automated, repeatable deployments with CloudFormation and Terraform.",
       className: "border-cyber-magenta"
+    },
+    {
+      icon: <Layout className="w-8 h-8" />,
+      title: "Responsive Design",
+      description: "Creating websites that work seamlessly across all devices and screen sizes.",
+      className: "border-cyber-neon"
     },
     {
       icon: <Database className="w-8 h-8" />,
@@ -50,9 +68,9 @@ const AboutSection = () => {
       className: "border-cyber-magenta"
     },
     {
-      icon: <Code className="w-8 h-8" />,
-      title: "DevOps Practices",
-      description: "Streamlining development workflows with CI/CD pipelines and container technologies.",
+      icon: <Palette className="w-8 h-8" />,
+      title: "UI/UX Design",
+      description: "Creating intuitive user interfaces with a focus on user experience and accessibility.",
       className: "border-cyber-yellow"
     },
     {

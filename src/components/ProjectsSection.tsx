@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ExternalLink, Github, Server, Database, Cloud, Shield, Network } from 'lucide-react';
+import { ExternalLink, Github, Server, Database, Cloud, Shield, Network, Code, FileCode, Layout, Globe } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface ProjectCardProps {
@@ -113,6 +113,26 @@ const ProjectCard = ({
 const ProjectsSection = () => {
   const projects = [
     {
+      title: "Responsive Portfolio Website",
+      description: "Designed and developed a fully responsive portfolio website using HTML5, CSS3, and modern design principles. The website features a clean, user-friendly interface with smooth animations and cross-browser compatibility.",
+      tags: ["HTML5", "CSS3", "Responsive Design", "Accessibility", "Performance Optimization"],
+      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&auto=format&fit=crop",
+      demoLink: "https://github.com/Whitney-coded",
+      codeLink: "https://github.com/Whitney-coded",
+      primaryIcon: <Code className="w-20 h-20 text-cyber-neon" />,
+      reverse: false
+    },
+    {
+      title: "E-commerce Landing Page",
+      description: "Created a high-converting landing page for an e-commerce client, featuring product showcases, testimonials, and call-to-action sections. Implemented mobile-first design and optimized for fast loading times.",
+      tags: ["HTML", "CSS", "Flexbox", "CSS Grid", "Animation"],
+      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&auto=format&fit=crop",
+      demoLink: "https://github.com/Whitney-coded",
+      codeLink: "https://github.com/Whitney-coded",
+      primaryIcon: <Layout className="w-20 h-20 text-cyber-magenta" />,
+      reverse: true
+    },
+    {
       title: "VPC Architecture for Small Business",
       description: "Created a secure VPC architecture for a small business during a hackathon. Implemented a multi-tier network design with public and private subnets across multiple availability zones, ensuring high availability and security for the business infrastructure.",
       tags: ["AWS VPC", "Network Security", "High Availability", "Multi-AZ", "Subnets"],
@@ -121,6 +141,16 @@ const ProjectsSection = () => {
       codeLink: "https://github.com/Whitney-coded",
       primaryIcon: <Network className="w-20 h-20 text-cyber-neon" />,
       reverse: false
+    },
+    {
+      title: "Interactive Dashboard UI",
+      description: "Developed a clean, modern dashboard interface using advanced CSS techniques. The dashboard features data visualizations, responsive layouts, and a cohesive design system that ensures consistency across components.",
+      tags: ["HTML", "CSS3", "Sass", "CSS Variables", "Dark Mode"],
+      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&auto=format&fit=crop",
+      demoLink: "#",
+      codeLink: "#",
+      primaryIcon: <FileCode className="w-20 h-20 text-cyber-neon" />,
+      reverse: true
     },
     {
       title: "Serverless Multi-Tier Application",
@@ -133,23 +163,14 @@ const ProjectsSection = () => {
       reverse: true
     },
     {
-      title: "Cloud-Native Microservices Platform",
-      description: "Built a containerized microservices platform using ECS and ECR with service discovery via AWS Cloud Map. Implemented a resilient architecture with auto-scaling, load balancing, and fault tolerance across multiple availability zones.",
-      tags: ["ECS", "ECR", "Microservices", "Docker", "CloudFormation"],
-      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&auto=format&fit=crop",
-      demoLink: "#",
-      primaryIcon: <Cloud className="w-20 h-20 text-cyber-magenta" />,
-      reverse: false
-    },
-    {
-      title: "Secure Data Warehouse Solution",
-      description: "Architected a comprehensive data warehouse solution using Redshift, with secure ETL pipelines using AWS Glue. The solution included data encryption, secure VPC design, and compliance with regulatory requirements.",
-      tags: ["Redshift", "AWS Glue", "S3", "Security", "IAM"],
-      image: "https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?w=800&auto=format&fit=crop",
+      title: "Multi-page Business Website",
+      description: "Built a comprehensive business website with multiple linked pages, contact forms, and responsive navigation. Utilized semantic HTML for better SEO and accessibility, with clean CSS for consistent styling.",
+      tags: ["HTML", "CSS", "Forms", "Multi-page", "SEO"],
+      image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=800&auto=format&fit=crop",
       demoLink: "#",
       codeLink: "#",
-      primaryIcon: <Database className="w-20 h-20 text-cyber-neon" />,
-      reverse: true
+      primaryIcon: <Globe className="w-20 h-20 text-cyber-magenta" />,
+      reverse: false
     }
   ];
 
@@ -161,7 +182,7 @@ const ProjectsSection = () => {
             FEATURED PROJECTS
           </h2>
           <p className="text-lg md:text-xl max-w-3xl mx-auto text-foreground/80">
-            Cloud architecture solutions that showcase my expertise in building robust, scalable, and secure AWS environments.
+            A showcase of my web development and cloud architecture projects, demonstrating expertise in HTML, CSS, and AWS technologies.
           </p>
         </div>
 
