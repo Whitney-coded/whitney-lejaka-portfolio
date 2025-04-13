@@ -38,13 +38,10 @@ const HeroSection = () => {
           <div className="w-full md:w-1/2 flex flex-col items-center md:items-end space-y-4">
             <div className="flex flex-wrap gap-4 justify-center md:justify-end">
               <a href="#projects" className="cyber-button">View Projects</a>
-              <a href="#contact" className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-black px-6 py-2 font-bold uppercase tracking-wider transition-all duration-300 rounded-sm shadow-[0_0_10px_rgba(255,255,255,0.3)] hover:shadow-[0_0_15px_rgba(255,255,255,0.5)] light:border-slate-800 light:text-slate-800 light:hover:bg-slate-800 light:hover:text-white light:shadow-[0_0_10px_rgba(0,0,0,0.2)]">
-                Get In Touch
-              </a>
             </div>
             <Button 
               variant="outline" 
-              className="group cyber-download-btn bg-transparent border-2 border-cyber-neon text-cyber-neon hover:bg-cyber-neon hover:text-black flex items-center gap-2 px-6 py-6 font-bold uppercase tracking-wider transition-all duration-300 rounded-sm shadow-[0_0_10px_rgba(0,255,102,0.3)] hover:shadow-[0_0_15px_rgba(0,255,102,0.5)] light:border-cyber-neon-light light:text-cyber-neon-light light:hover:bg-cyber-neon-light light:hover:text-white light:shadow-[0_0_10px_rgba(0,200,82,0.2)]"
+              className="group cyber-download-btn bg-transparent border-2 border-cyber-neon text-white hover:bg-cyber-neon hover:text-black flex items-center gap-2 px-6 py-6 font-bold uppercase tracking-wider transition-all duration-300 rounded-sm shadow-[0_0_10px_rgba(0,255,102,0.3)] hover:shadow-[0_0_15px_rgba(0,255,102,0.5)] light:border-cyber-neon-light light:text-cyber-neon-light light:hover:bg-cyber-neon-light light:hover:text-white light:shadow-[0_0_10px_rgba(0,200,82,0.2)]"
               onClick={() => {
                 // In a real app, this would link to an actual CV file
                 console.log('CV download clicked');
