@@ -1,6 +1,10 @@
 
 import React from 'react';
-import { Award, Cloud, Database, Server, Shield, Code, FileCode, Layout, Palette, Globe } from 'lucide-react';
+import { 
+  Award, Cloud, Database, Server, Shield, Code, FileCode, Layout, 
+  Palette, Globe, Terminal, Github, Network, Monitor, BarChart, 
+  FileJson, Cpu, HardDrive, BrainCircuit
+} from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface SkillCardProps {
@@ -23,7 +27,77 @@ const SkillCard = ({ icon, title, description, className }: SkillCardProps) => {
   );
 };
 
+interface SkillCategoryProps {
+  title: string;
+  description: string;
+  skills: {
+    icon: React.ReactNode;
+    name: string;
+    level?: string;
+  }[];
+  className?: string;
+}
+
+const SkillCategory = ({ title, description, skills, className }: SkillCategoryProps) => {
+  return (
+    <div className={cn(
+      "cyber-border p-6 rounded-sm bg-cyber-blue/10 backdrop-blur-sm mb-8",
+      className
+    )}>
+      <h3 className="text-2xl text-cyber-neon font-mono mb-4">{title}</h3>
+      <p className="mb-6 text-foreground/80">{description}</p>
+      
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+        {skills.map((skill, index) => (
+          <div 
+            key={index} 
+            className="flex flex-col items-center p-4 border border-cyber-neon/30 rounded-sm bg-cyber-black/30 hover:bg-cyber-blue/20 transition-all duration-300 group"
+          >
+            <div className="text-cyber-neon mb-2 transform group-hover:scale-110 transition-transform duration-300">
+              {skill.icon}
+            </div>
+            <span className="text-foreground text-sm font-medium text-center">{skill.name}</span>
+            {skill.level && (
+              <div className="mt-2 w-full bg-cyber-blue/10 h-1.5 rounded-full overflow-hidden">
+                <div 
+                  className="h-full bg-gradient-to-r from-cyber-neon to-cyber-yellow" 
+                  style={{ width: skill.level }}
+                ></div>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
 const AboutSection = () => {
+  const frontendSkills = [
+    { icon: <Code className="w-6 h-6" />, name: "HTML5", level: "95%" },
+    { icon: <FileCode className="w-6 h-6" />, name: "CSS3", level: "90%" },
+    { icon: <Layout className="w-6 h-6" />, name: "Responsive Design", level: "90%" },
+    { icon: <Palette className="w-6 h-6" />, name: "UI/UX Design", level: "85%" },
+  ];
+
+  const cloudSkills = [
+    { icon: <Cloud className="w-6 h-6" />, name: "AWS", level: "85%" },
+    { icon: <Network className="w-6 h-6" />, name: "VPC Architecture", level: "80%" },
+    { icon: <Shield className="w-6 h-6" />, name: "Security Best Practices", level: "85%" },
+    { icon: <Server className="w-6 h-6" />, name: "Serverless", level: "75%" },
+    { icon: <Cpu className="w-6 h-6" />, name: "EC2", level: "90%" },
+    { icon: <Monitor className="w-6 h-6" />, name: "Monitoring", level: "80%" },
+    { icon: <FileJson className="w-6 h-6" />, name: "CloudFormation", level: "75%" },
+    { icon: <Terminal className="w-6 h-6" />, name: "Cloud9", level: "85%" },
+    { icon: <Database className="w-6 h-6" />, name: "Databases", level: "80%" },
+  ];
+
+  const devToolsSkills = [
+    { icon: <Github className="w-6 h-6" />, name: "GitHub", level: "85%" },
+    { icon: <Code className="w-6 h-6" />, name: "VS Code", level: "90%" },
+    { icon: <BrainCircuit className="w-6 h-6" />, name: "Git", level: "85%" },
+  ];
+
   const skills = [
     {
       icon: <Cloud className="w-8 h-8" />,
@@ -108,6 +182,31 @@ const AboutSection = () => {
         <h3 className="text-2xl md:text-3xl font-mono text-center mb-10 text-cyber-yellow">
           Core Skills & Expertise
         </h3>
+        
+        {/* New Skills Showcase */}
+        <div className="mb-12">
+          <SkillCategory 
+            title="Frontend Development" 
+            description="Strong foundation in frontend development technologies focusing on creating responsive, accessible, and visually appealing web interfaces."
+            skills={frontendSkills}
+            className="border-cyber-yellow"
+          />
+          
+          <SkillCategory 
+            title="AWS Cloud Computing" 
+            description="Expertise in designing, implementing, and managing cloud solutions using AWS services with a focus on security, scalability, and cost optimization."
+            skills={cloudSkills}
+            className="border-cyber-neon"
+          />
+          
+          <SkillCategory 
+            title="Development Tools" 
+            description="Proficient with modern development tools and workflows for efficient coding, versioning, and collaboration."
+            skills={devToolsSkills}
+            className="border-cyber-magenta"
+          />
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skills.map((skill, index) => (
             <SkillCard
