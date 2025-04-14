@@ -11,14 +11,14 @@ const HeroSection = () => {
       <div className="container mx-auto px-4 z-10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Left content column */}
-          <div className="w-full md:w-1/2 space-y-6 text-center md:text-left">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-roboto dark:text-white light:text-black">
+          <div className="w-full space-y-6 text-center md:text-left">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-roboto dark:text-white text-black">
               <span className="leading-tight">WHITNEY LEJAKA</span>
             </h1>
             <h2 className="text-xl md:text-2xl font-mono text-cyber-neon light:text-cyber-neon-light">
               <span className="text-flicker">&#60;Certified AWS Professional&#47;&#62;</span>
             </h2>
-            <p className="text-xl md:text-2xl dark:text-foreground/80 light:text-slate-700 max-w-2xl">
+            <p className="text-xl md:text-2xl dark:text-foreground/80 text-slate-700 max-w-2xl">
               I am an aspiring Solutions Architect who has earned the AWS Cloud Practitioner certification, with expertise in HTML and CSS development.
             </p>
             <div className="flex flex-wrap gap-3 my-4 justify-center md:justify-start">
@@ -32,31 +32,29 @@ const HeroSection = () => {
                 AWS
               </span>
             </div>
-          </div>
-          
-          {/* Right action column */}
-          <div className="w-full md:w-1/2 flex flex-col items-center md:items-end space-y-4">
-            <div className="flex flex-wrap gap-4 justify-center md:justify-end">
+            
+            <div className="flex flex-wrap gap-4 justify-center md:justify-start">
               <a href="#projects" className="cyber-button">View Projects</a>
+              
+              <Button 
+                variant="outline" 
+                className="group cyber-download-btn bg-transparent border-2 border-cyber-neon dark:text-white text-black hover:bg-cyber-neon hover:text-white flex items-center gap-2 px-6 py-6 font-bold uppercase tracking-wider transition-all duration-300 rounded-sm shadow-[0_0_10px_rgba(0,255,102,0.3)] hover:shadow-[0_0_15px_rgba(0,255,102,0.5)] light:border-cyber-neon-light light:hover:bg-cyber-neon-light light:hover:text-white light:shadow-[0_0_10px_rgba(0,200,82,0.2)]"
+                onClick={() => {
+                  // In a real app, this would link to an actual CV file
+                  console.log('CV download clicked');
+                  // Example of how to trigger a download (would use actual file in production)
+                  const link = document.createElement('a');
+                  link.href = '#'; // Replace with actual CV file path
+                  link.download = 'Whitney_Lejaka_CV.pdf';
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                }}
+              >
+                <FileDown className="w-5 h-5 group-hover:animate-bounce" />
+                Download CV
+              </Button>
             </div>
-            <Button 
-              variant="outline" 
-              className="group cyber-download-btn bg-transparent border-2 border-cyber-neon text-white dark:text-white light:text-slate-800 hover:bg-cyber-neon hover:text-black flex items-center gap-2 px-6 py-6 font-bold uppercase tracking-wider transition-all duration-300 rounded-sm shadow-[0_0_10px_rgba(0,255,102,0.3)] hover:shadow-[0_0_15px_rgba(0,255,102,0.5)] light:border-cyber-neon-light light:hover:bg-cyber-neon-light light:hover:text-white light:shadow-[0_0_10px_rgba(0,200,82,0.2)]"
-              onClick={() => {
-                // In a real app, this would link to an actual CV file
-                console.log('CV download clicked');
-                // Example of how to trigger a download (would use actual file in production)
-                const link = document.createElement('a');
-                link.href = '#'; // Replace with actual CV file path
-                link.download = 'Whitney_Lejaka_CV.pdf';
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-              }}
-            >
-              <FileDown className="w-5 h-5 group-hover:animate-bounce" />
-              Download CV
-            </Button>
           </div>
         </div>
       </div>
