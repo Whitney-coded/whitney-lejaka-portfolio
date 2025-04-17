@@ -1,8 +1,49 @@
-import React from 'react';
+
+import React, { useEffect, useState } from 'react';
 import { FileDown, Code, FileCode } from 'lucide-react';
 import { Button } from "@/components/ui/button";
+import { removeBackground } from '@/utils/imageUtils';
+import { useToast } from '@/components/ui/use-toast';
 
 const HeroSection = () => {
+  const [processedImageUrl, setProcessedImageUrl] = useState<string | null>(null);
+  const { toast } = useToast();
+
+  useEffect(() => {
+    const processImage = async () => {
+      try {
+        // Create a temporary image element
+        const img = new Image();
+        img.crossOrigin = "anonymous"; // Enable CORS
+        img.src = "/lovable-uploads/acdc0400-7923-43b5-bd46-def9d03013a8.png";
+        
+        await new Promise((resolve, reject) => {
+          img.onload = resolve;
+          img.onerror = reject;
+        });
+
+        // Remove background
+        const processedBlob = await removeBackground(img);
+        const processedUrl = URL.createObjectURL(processedBlob);
+        setProcessedImageUrl(processedUrl);
+        
+        toast({
+          title: "Image processed successfully",
+          description: "Background has been removed from the image.",
+        });
+      } catch (error) {
+        console.error('Error processing image:', error);
+        toast({
+          variant: "destructive",
+          title: "Error processing image",
+          description: "Failed to remove background. Using original image.",
+        });
+      }
+    };
+
+    processImage();
+  }, []);
+
   return (
     <section id="home" className="min-h-screen relative overflow-hidden flex items-center pt-16 scanline">
       <div className="absolute inset-0 dark:bg-web3-gradient light:bg-web3-gradient-light opacity-20 z-0"></div>
@@ -13,11 +54,10 @@ const HeroSection = () => {
           <div className="order-2 md:order-1">
             <div className="relative rounded-lg overflow-hidden cyber-border">
               <img 
-                src="/lovable-uploads/acdc0400-7923-43b5-bd46-def9d03013a8.png"
+                src={processedImageUrl || "/lovable-uploads/acdc0400-7923-43b5-bd46-def9d03013a8.png"}
                 alt="Whitney Lejaka Professional Photo"
                 className="w-full h-auto object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
             </div>
           </div>
 
