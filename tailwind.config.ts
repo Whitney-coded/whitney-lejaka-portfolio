@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 import plugin from 'tailwindcss/plugin';
 
@@ -133,9 +134,6 @@ export default {
 				'cyber-glow-light': 'radial-gradient(circle, rgba(0, 200, 82, 0.15) 0%, rgba(255, 255, 255, 0) 70%)',
 				'web3-gradient': 'linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 255, 102, 0.1) 100%)',
 				'web3-gradient-light': 'linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(0, 200, 82, 0.1) 100%)'
-			},
-			fontFamily: {
-				'roboto': ['Roboto', 'sans-serif'],
 			}
 		}
 	},
