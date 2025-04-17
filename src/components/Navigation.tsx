@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Menu, X, Home, User, Briefcase, Phone, Laptop } from "lucide-react";
@@ -43,19 +42,18 @@ const Navigation = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-cyber-black/80 backdrop-blur-md border-b border-cyber-neon/10 dark:bg-cyber-black/80 light:bg-white/80 light:border-slate-200/20">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-cyber-black/80 backdrop-blur-md border-b border-cyber-neon/10">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <a href="#" className="cyber-text text-2xl flex items-center gap-2 group">
           <Laptop className="h-6 w-6 text-cyber-neon" />
         </a>
         
-        {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
           {navLinks.map((link) => (
             <a 
               key={link.name}
               href={link.href}
-              className="text-foreground hover:text-cyber-neon transition-colors duration-300 flex items-center gap-2 cyber-glitch light:text-slate-800 light:hover:text-cyber-neon"
+              className="text-foreground hover:text-cyber-neon transition-colors duration-300 flex items-center gap-2 cyber-glitch"
             >
               {link.icon}
               <span>{link.name}</span>
@@ -75,13 +73,13 @@ const Navigation = () => {
                 <Menu className="h-6 w-6" />
               </Button>
             </DrawerTrigger>
-            <DrawerContent className="bg-cyber-black/95 border-t border-cyber-neon/20 p-6 h-[70vh] light:bg-slate-900/95">
+            <DrawerContent className="bg-cyber-black/95 border-t border-cyber-neon/20 p-6 h-[70vh]">
               <div className="flex flex-col space-y-8 items-center justify-center h-full">
                 {navLinks.map((link) => (
                   <DrawerClose asChild key={link.name}>
                     <a 
                       href={link.href}
-                      className="text-xl font-semibold text-foreground hover:text-cyber-neon transition-colors duration-300 flex items-center gap-3 cyber-glitch light:text-white light:hover:text-cyber-neon"
+                      className="text-xl font-semibold text-foreground hover:text-cyber-neon transition-colors duration-300 flex items-center gap-3 cyber-glitch"
                       onClick={handleLinkClick}
                     >
                       {link.icon}
@@ -109,7 +107,7 @@ const Navigation = () => {
         <div 
           ref={navRef}
           className={cn(
-            "fixed inset-0 bg-cyber-black/95 flex flex-col justify-center items-center space-y-10 z-40 transition-all duration-300 md:hidden light:bg-white/95",
+            "fixed inset-0 bg-cyber-black/95 flex flex-col justify-center items-center space-y-10 z-40 transition-all duration-300 md:hidden",
             isOpen ? "opacity-100 pt-16" : "opacity-0 pointer-events-none"
           )}
         >
@@ -117,7 +115,7 @@ const Navigation = () => {
             <a 
               key={link.name} 
               href={link.href}
-              className="text-xl font-semibold text-foreground hover:text-cyber-neon transition-colors duration-300 flex items-center gap-3 cyber-glitch light:text-slate-800 light:hover:text-cyber-neon"
+              className="text-xl font-semibold text-foreground hover:text-cyber-neon transition-colors duration-300 flex items-center gap-3 cyber-glitch"
               onClick={handleLinkClick}
             >
               {link.icon}
