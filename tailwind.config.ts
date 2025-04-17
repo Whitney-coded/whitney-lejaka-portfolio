@@ -57,8 +57,8 @@ export default {
 					"black": "#000000",
 					"dark-blue": "#111111", 
 					"blue": "#222222",
-					"neon": "#1EAEDB", // Changed from #00FF66 to match dress color
-					"neon-light": "#33C3F0", // Changed from #00C852 to lighter dress color
+					"neon": "#00FF66",
+					"neon-light": "#00C852", // Slightly darker for light mode
 					"magenta": "#ffffff",
 					"yellow": "#ffffff"
 				},

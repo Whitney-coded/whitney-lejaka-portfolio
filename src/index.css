@@ -87,16 +87,16 @@
 
 @layer components {
   .cyber-border {
-    @apply relative border-2 border-cyber-neon rounded-sm shadow-[0_0_10px_rgba(30,174,219,0.3)] 
-           light:shadow-[0_0_10px_rgba(51,195,240,0.3)];
+    @apply relative border-2 border-cyber-neon rounded-sm shadow-[0_0_10px_rgba(0,255,102,0.3)] 
+           light:shadow-[0_0_10px_rgba(0,200,82,0.3)];
   }
   
   .cyber-button {
     @apply relative px-6 py-2 bg-transparent text-cyber-neon border-2 border-cyber-neon font-bold uppercase tracking-wider
-    hover:bg-cyber-neon hover:text-cyber-black hover:shadow-[0_0_15px_rgba(30,174,219,0.5)] 
-    transition-all duration-300 rounded-sm shadow-[0_0_10px_rgba(30,174,219,0.2)]
+    hover:bg-cyber-neon hover:text-cyber-black hover:shadow-[0_0_15px_rgba(0,255,102,0.5)] 
+    transition-all duration-300 rounded-sm shadow-[0_0_10px_rgba(0,255,102,0.2)]
     light:text-cyber-neon-light light:border-cyber-neon-light light:hover:bg-cyber-neon-light 
-    light:hover:text-white light:shadow-[0_0_10px_rgba(51,195,240,0.2)];
+    light:hover:text-white light:shadow-[0_0_10px_rgba(0,200,82,0.2)];
   }
   
   .cyber-download-btn:hover .svg-icon {

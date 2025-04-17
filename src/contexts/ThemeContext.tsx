@@ -11,7 +11,8 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
-  const [theme, setTheme] = useState<Theme>('dark');
+  // Set default theme to 'light' instead of 'dark'
+  const [theme, setTheme] = useState<Theme>('light');
 
   useEffect(() => {
     // Check if user has previously selected a theme
