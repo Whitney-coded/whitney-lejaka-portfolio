@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { FileDown, Code, FileCode, Eye } from 'lucide-react';
+import { FileDown, Code, FileCode } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 
@@ -18,15 +17,6 @@ const HeroSection = () => {
     toast({
       title: "Download Started",
       description: "Your CV download should begin shortly.",
-    });
-  };
-
-  const handleViewCV = () => {
-    window.open('/whitney-lejaka-cv.pdf', '_blank');
-    
-    toast({
-      title: "Opening CV",
-      description: "CV should open in a new tab.",
     });
   };
 
@@ -69,14 +59,6 @@ const HeroSection = () => {
               >
                 <FileDown className="w-5 h-5 group-hover:animate-bounce" />
                 Download CV
-              </Button>
-              <Button 
-                variant="outline" 
-                className="group bg-transparent border-2 border-cyber-neon text-cyber-neon hover:bg-cyber-neon hover:text-black flex items-center gap-2 px-6 py-6 font-bold uppercase tracking-wider transition-all duration-300 rounded-sm shadow-[0_0_10px_rgba(0,255,102,0.3)] hover:shadow-[0_0_15px_rgba(0,255,102,0.5)]"
-                onClick={handleViewCV}
-              >
-                <Eye className="w-5 h-5 group-hover:animate-pulse" />
-                View CV
               </Button>
             </div>
           </div>
