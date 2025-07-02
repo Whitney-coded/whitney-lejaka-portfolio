@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ExternalLink, Github, Server, Database, Cloud, Shield, Network, Code, FileCode, Layout, Globe } from 'lucide-react';
+import { ExternalLink, Github, Server, Database, Cloud, Shield, Network, Code, FileCode, Layout, Globe, Bot } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface ProjectCardProps {
@@ -113,14 +113,24 @@ const ProjectCard = ({
 const ProjectsSection = () => {
   const projects = [
     {
+      title: "Crypto Chatbot",
+      description: "Developed an intelligent cryptocurrency chatbot using Python that provides real-time crypto information, market analysis, and trading insights. The bot features natural language processing capabilities and integrates with cryptocurrency APIs to deliver accurate market data.",
+      tags: ["Python", "Natural Language Processing", "Cryptocurrency APIs", "Chatbot Development", "Market Analysis"],
+      image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&auto=format&fit=crop",
+      demoLink: "#",
+      codeLink: "https://github.com/Whitney-coded/Crypto_chatbot_python.git",
+      primaryIcon: <Bot className="w-20 h-20 text-cyber-neon" />,
+      reverse: false
+    },
+    {
       title: "Responsive Portfolio Website",
       description: "Designed and developed a fully responsive portfolio website using HTML5, CSS3, and modern design principles. The website features a clean, user-friendly interface with smooth animations and cross-browser compatibility.",
       tags: ["HTML5", "CSS3", "Responsive Design", "Accessibility", "Performance Optimization"],
       image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&auto=format&fit=crop",
       demoLink: "https://github.com/Whitney-coded",
       codeLink: "https://github.com/Whitney-coded",
-      primaryIcon: <Code className="w-20 h-20 text-cyber-neon" />,
-      reverse: false
+      primaryIcon: <Code className="w-20 h-20 text-cyber-magenta" />,
+      reverse: true
     },
     {
       title: "E-commerce Landing Page",
@@ -129,8 +139,8 @@ const ProjectsSection = () => {
       image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&auto=format&fit=crop",
       demoLink: "https://github.com/Whitney-coded",
       codeLink: "https://github.com/Whitney-coded",
-      primaryIcon: <Layout className="w-20 h-20 text-cyber-magenta" />,
-      reverse: true
+      primaryIcon: <Layout className="w-20 h-20 text-cyber-neon" />,
+      reverse: false
     },
     {
       title: "VPC Architecture for Small Business",
@@ -139,8 +149,8 @@ const ProjectsSection = () => {
       image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&auto=format&fit=crop",
       demoLink: "http://squad-project-ec2elites.s3-website-us-east-1.amazonaws.com/",
       codeLink: "https://github.com/Whitney-coded",
-      primaryIcon: <Network className="w-20 h-20 text-cyber-neon" />,
-      reverse: false
+      primaryIcon: <Network className="w-20 h-20 text-cyber-magenta" />,
+      reverse: true
     },
     {
       title: "Interactive Dashboard UI",
@@ -150,7 +160,7 @@ const ProjectsSection = () => {
       demoLink: "#",
       codeLink: "#",
       primaryIcon: <FileCode className="w-20 h-20 text-cyber-neon" />,
-      reverse: true
+      reverse: false
     },
     {
       title: "Serverless Multi-Tier Application",
@@ -159,7 +169,7 @@ const ProjectsSection = () => {
       image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=800&auto=format&fit=crop",
       demoLink: "#",
       codeLink: "#",
-      primaryIcon: <Server className="w-20 h-20 text-cyber-neon" />,
+      primaryIcon: <Server className="w-20 h-20 text-cyber-magenta" />,
       reverse: true
     },
     {
@@ -169,7 +179,7 @@ const ProjectsSection = () => {
       image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=800&auto=format&fit=crop",
       demoLink: "#",
       codeLink: "#",
-      primaryIcon: <Globe className="w-20 h-20 text-cyber-magenta" />,
+      primaryIcon: <Globe className="w-20 h-20 text-cyber-neon" />,
       reverse: false
     }
   ];
