@@ -1,7 +1,7 @@
-
 import React from 'react';
 import { ExternalLink, Github, Server, Database, Cloud, Shield, Network, Code, FileCode, Layout, Globe, Bot } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import MovingPixelRobot from './MovingPixelRobot';
 
 interface ProjectCardProps {
   title: string;
@@ -119,7 +119,7 @@ const ProjectsSection = () => {
       image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&auto=format&fit=crop",
       demoLink: "#",
       codeLink: "https://github.com/Whitney-coded/Crypto_chatbot_python.git",
-      primaryIcon: <Bot className="w-20 h-20 text-cyber-neon" />,
+      primaryIcon: <MovingPixelRobot size="lg" />,
       reverse: false
     },
     {
