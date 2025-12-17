@@ -31,7 +31,7 @@ const HeroSection = () => {
               <span className="cyber-text leading-tight">WHITNEY LEJAKA</span>
             </h1>
             <h2 className="text-xl md:text-2xl font-mono text-cyber-neon text-left">
-              <span className="text-flicker">&#60;ALX AFRICA ALUMNA | AWS CERTIFIED CLOUD PRACTITIONER&#47;&#62;</span>
+              <span className="text-flicker">&#60;ALX AFRICA ALUMNA | POWER LEARN PROJECT ALUMNA | AWS CERTIFIED CLOUD PRACTITIONER&#47;&#62;</span>
             </h2>
             <div className="flex flex-wrap gap-3 my-4">
               <span className="px-3 py-1 bg-cyber-blue/20 border border-cyber-neon rounded-sm text-cyber-neon">
@@ -42,6 +42,9 @@ const HeroSection = () => {
               </span>
               <span className="px-3 py-1 bg-cyber-blue/20 border border-cyber-yellow rounded-sm text-cyber-yellow">
                 AWS
+              </span>
+              <span className="px-3 py-1 bg-cyber-blue/20 border border-primary rounded-sm text-primary">
+                <Code className="w-4 h-4 inline mr-1" /> Python
               </span>
             </div>
             <p className="text-xl md:text-2xl text-foreground/80 max-w-2xl">

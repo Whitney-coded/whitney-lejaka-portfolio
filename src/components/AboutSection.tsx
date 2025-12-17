@@ -99,7 +99,10 @@ const AboutSection = () => {
             <h3 className="text-2xl text-cyber-neon font-mono mb-6">My Story</h3>
             <div className="space-y-4 text-lg">
               <p>
-                I have been on a learning journey with ALX Africa, focusing on AWS Cloud Computing. I am preparing to take the AWS Solutions Architect exam soon and am currently enrolled in a Software Engineering scholarship with Power Learn Project.
+                I have completed a 6-month AWS Cloud Computing programme with ALX Africa, where I gained comprehensive knowledge of cloud architecture and services. I also completed a 16-week Software Engineering programme with Power Learn Project, specialising in AI for Software Engineering.
+              </p>
+              <p>
+                During my training at Power Learn Project, I developed expertise in web technologies, Python programming, and database management. Additionally, I completed a course with Udacity called "Introducing Generative AI with AWS", further expanding my knowledge in cutting-edge AI technologies.
               </p>
             </div>
           </div>
