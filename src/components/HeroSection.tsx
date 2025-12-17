@@ -7,12 +7,7 @@ const HeroSection = () => {
   const { toast } = useToast();
 
   const handleDownloadCV = () => {
-    const link = document.createElement('a');
-    link.href = '/whitney-lejaka-cv.pdf';
-    link.download = 'Whitney_Lejaka_CV.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    window.open('https://drive.google.com/uc?export=download&id=1QT14_qGxK02POyNeKqmX06SdWsMDHHiO', '_blank');
     
     toast({
       title: "Download Started",
