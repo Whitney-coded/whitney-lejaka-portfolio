@@ -43,7 +43,7 @@ const HeroSection = () => {
               </span>
             </div>
             <p className="text-xl md:text-2xl text-foreground/80 max-w-2xl">
-              I am an aspiring Solutions Architect with AWS Cloud Practitioner certification, specializing in customer service excellence and cloud computing solutions.
+              I am a Software Engineer with a passion for Cloud Computing, Artificial Intelligence, and Machine Learning.
             </p>
             <div className="pt-4 flex flex-wrap gap-4">
               <a href="#projects" className="cyber-button">View Projects</a>
