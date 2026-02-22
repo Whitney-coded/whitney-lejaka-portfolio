@@ -124,11 +124,10 @@ const ProjectsSection = () => {
     },
     {
       title: "Responsive Business Landing Page",
-      description: "Designed and developed a fully responsive landing page for a business using HTML5, CSS3, and modern design principles. The website features a clean, user-friendly interface with smooth animations and cross-browser compatibility.",
-      tags: ["HTML5", "CSS3", "Responsive Design", "Accessibility", "Performance Optimization"],
+      description: "Designed and developed a fully responsive landing page for a business using Bolt.new and TypeScript. The website features a clean, user-friendly interface with smooth animations and cross-browser compatibility. Deployed using Vercel for fast and reliable hosting.",
+      tags: ["TypeScript", "Bolt.new", "Vercel", "Responsive Design", "Performance Optimization"],
       image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&auto=format&fit=crop",
       demoLink: "https://www.omritech.co.za",
-      codeLink: "https://github.com/Whitney-coded",
       primaryIcon: <Code className="w-20 h-20 text-cyber-magenta" />,
       reverse: true
     },
