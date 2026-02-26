@@ -113,10 +113,15 @@ export default {
 					'90%': { opacity: '0.8' },
 					'100%': { opacity: '1' }
 				},
-				'float': {
+			'float': {
 					'0%': { transform: 'translateY(0px)' },
 					'50%': { transform: 'translateY(-10px)' },
 					'100%': { transform: 'translateY(0px)' }
+				},
+				'gradientShift': {
+					'0%': { backgroundPosition: '0% 50%' },
+					'50%': { backgroundPosition: '100% 50%' },
+					'100%': { backgroundPosition: '0% 50%' }
 				}
 			},
 			animation: {
