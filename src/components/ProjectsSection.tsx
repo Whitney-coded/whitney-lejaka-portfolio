@@ -115,10 +115,9 @@ const ProjectsSection = () => {
   const projects = [
     {
       title: "Crypto Chatbot",
-      description: "Developed an intelligent cryptocurrency chatbot using Python that provides real-time crypto information, market analysis, and trading insights. The bot features natural language processing capabilities and integrates with cryptocurrency APIs to deliver accurate market data.",
-      tags: ["Python", "Natural Language Processing", "Cryptocurrency APIs", "Chatbot Development", "Market Analysis"],
+      description: "Developed a rule-based cryptocurrency chatbot using Python that provides real-time crypto information, market analysis, and trading insights. The bot uses predefined rules and pattern matching to respond to user queries and integrates with cryptocurrency APIs to deliver accurate market data.",
+      tags: ["Python", "Rule-Based System", "Cryptocurrency APIs", "Chatbot Development", "Market Analysis"],
       image: cryptoChatbotImg,
-      demoLink: "#",
       codeLink: "https://github.com/Whitney-coded/Crypto_chatbot_python.git",
       primaryIcon: <MovingPixelRobot size="lg" />,
       reverse: false
