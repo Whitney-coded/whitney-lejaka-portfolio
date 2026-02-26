@@ -528,4 +528,27 @@
     );
     pointer-events: none;
   }
+
+  /* Dossier keyword glitch on hover */
+  .dossier-keyword:hover {
+    animation: heroGlitch 0.3s steps(2) 1;
+  }
+
+  /* Scanning light bar */
+  @keyframes scanBar {
+    0%, 100% { top: -12px; }
+    50% { top: calc(100% - 12px); }
+  }
+
+  /* Data stream fall */
+  @keyframes dataStreamFall {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(calc(100vh + 100%)); }
+  }
+
+  /* Fade slide in for terminal lines */
+  @keyframes fadeSlideIn {
+    0% { opacity: 0; transform: translateX(-8px); }
+    100% { opacity: 1; transform: translateX(0); }
+  }
 }
