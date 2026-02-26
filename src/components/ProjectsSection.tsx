@@ -2,6 +2,7 @@ import React from 'react';
 import { ExternalLink, Github, Server, Database, Cloud, Shield, Network, Code, FileCode, Layout, Globe, Bot } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import MovingPixelRobot from './MovingPixelRobot';
+import cryptoChatbotImg from '@/assets/crypto-chatbot.jpg';
 
 interface ProjectCardProps {
   title: string;
@@ -116,7 +117,7 @@ const ProjectsSection = () => {
       title: "Crypto Chatbot",
       description: "Developed an intelligent cryptocurrency chatbot using Python that provides real-time crypto information, market analysis, and trading insights. The bot features natural language processing capabilities and integrates with cryptocurrency APIs to deliver accurate market data.",
       tags: ["Python", "Natural Language Processing", "Cryptocurrency APIs", "Chatbot Development", "Market Analysis"],
-      image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&auto=format&fit=crop",
+      image: cryptoChatbotImg,
       demoLink: "#",
       codeLink: "https://github.com/Whitney-coded/Crypto_chatbot_python.git",
       primaryIcon: <MovingPixelRobot size="lg" />,
