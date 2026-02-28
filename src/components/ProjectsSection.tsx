@@ -1,5 +1,6 @@
-import React from 'react';
-import { ExternalLink, Github, Server, Database, Cloud, Shield, Network, Code, FileCode, Layout, Globe, Bot } from 'lucide-react';
+
+import React, { useRef, useState, useEffect } from 'react';
+import { ExternalLink, Github, Server, Database, Cloud, Shield, Network, Code, FileCode, Layout, Globe, Bot, Terminal } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import MovingPixelRobot from './MovingPixelRobot';
 import cryptoChatbotImg from '@/assets/crypto-chatbot.jpg';
@@ -13,98 +14,100 @@ interface ProjectCardProps {
   codeLink?: string;
   primaryIcon: React.ReactNode;
   reverse?: boolean;
+  index: number;
 }
 
-const ProjectCard = ({ 
-  title, 
-  description, 
-  tags, 
-  image,
-  demoLink,
-  codeLink,
-  primaryIcon,
-  reverse = false
-}: ProjectCardProps) => {
+const CornerBrackets = ({ color = 'rgba(0, 255, 102, 0.4)' }: { color?: string }) => (
+  <>
+    <div className="absolute top-0 left-0 w-5 h-5 pointer-events-none z-20" style={{ borderTop: `2px solid ${color}`, borderLeft: `2px solid ${color}` }} />
+    <div className="absolute top-0 right-0 w-5 h-5 pointer-events-none z-20" style={{ borderTop: `2px solid ${color}`, borderRight: `2px solid ${color}` }} />
+    <div className="absolute bottom-0 left-0 w-5 h-5 pointer-events-none z-20" style={{ borderBottom: `2px solid ${color}`, borderLeft: `2px solid ${color}` }} />
+    <div className="absolute bottom-0 right-0 w-5 h-5 pointer-events-none z-20" style={{ borderBottom: `2px solid ${color}`, borderRight: `2px solid ${color}` }} />
+  </>
+);
+
+const ProjectCard = ({ title, description, tags, image, demoLink, codeLink, primaryIcon, reverse = false, index }: ProjectCardProps) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setVisible(true); }, { threshold: 0.15 });
+    if (ref.current) obs.observe(ref.current);
+    return () => obs.disconnect();
+  }, []);
+
+  const accentColor = reverse ? 'rgba(255, 25, 248, 0.5)' : 'rgba(0, 255, 102, 0.5)';
+  const accentText = reverse ? 'text-[#ff19f8]' : 'text-cyber-neon';
+
   return (
-    <div className={cn(
-      "cyber-border p-1 rounded-sm flex flex-col lg:flex-row gap-6 overflow-hidden bg-cyber-blue/10 backdrop-blur-sm",
-      reverse ? "border-cyber-magenta shadow-[0_0_10px_rgba(255,25,248,0.3)]" : "border-cyber-neon shadow-[0_0_10px_rgba(14,247,247,0.3)]"
-    )}>
+    <div
+      ref={ref}
+      className="relative"
+      style={{
+        opacity: visible ? 1 : 0,
+        transform: visible ? 'translateY(0)' : 'translateY(40px)',
+        transition: `all 0.8s cubic-bezier(0.22, 1, 0.36, 1) ${index * 0.1}s`
+      }}
+    >
       <div className={cn(
-        "lg:w-2/5 relative overflow-hidden group",
-        reverse && "lg:order-2"
+        "relative glass-panel rounded-sm flex flex-col lg:flex-row gap-0 overflow-hidden transition-all duration-500 hover:shadow-[0_0_40px_rgba(0,255,102,0.15)]",
       )}>
-        <div className="absolute inset-0 bg-gradient-to-br from-cyber-dark-blue/80 to-transparent z-10 group-hover:opacity-0 transition-opacity duration-300"></div>
-        <img 
-          src={image} 
-          alt={title} 
-          className="w-full h-full object-cover object-center transform group-hover:scale-110 transition-transform duration-500" 
-        />
-        <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center opacity-60 group-hover:opacity-0 transition-opacity duration-300 z-20">
-          {primaryIcon}
+        <CornerBrackets color={accentColor} />
+
+        <div className={cn("lg:w-2/5 relative overflow-hidden group", reverse && "lg:order-2")}>
+          <div className="absolute inset-0 bg-gradient-to-br from-black/80 to-transparent z-10 group-hover:opacity-0 transition-opacity duration-500" />
+          <img src={image} alt={title} className="w-full h-full min-h-[200px] object-cover object-center transform group-hover:scale-110 transition-transform duration-700" />
+          <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center opacity-50 group-hover:opacity-0 transition-opacity duration-500 z-20">
+            {primaryIcon}
+          </div>
+          {/* Scan bar on hover */}
+          <div className="absolute inset-0 z-30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none overflow-hidden">
+            <div className="absolute left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-cyber-neon/60 to-transparent" style={{ animation: 'scanBar 3s ease-in-out infinite' }} />
+          </div>
         </div>
-      </div>
-      
-      <div className={cn(
-        "lg:w-3/5 p-6",
-        reverse && "lg:order-1"
-      )}>
-        <h3 className={cn(
-          "text-2xl font-mono mb-3",
-          reverse ? "text-cyber-magenta" : "text-cyber-neon"
-        )}>
-          {title}
-        </h3>
-        
-        <p className="text-foreground/80 mb-4">
-          {description}
-        </p>
-        
-        <div className="flex flex-wrap gap-2 mb-6">
-          {tags.map((tag, index) => (
-            <span 
-              key={index} 
-              className={cn(
-                "px-3 py-1 text-sm rounded-sm border",
-                reverse 
-                  ? "border-cyber-magenta/40 text-cyber-magenta bg-cyber-magenta/10" 
-                  : "border-cyber-neon/40 text-cyber-neon bg-cyber-neon/10"
-              )}
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-        
-        <div className="flex gap-4">
-          {demoLink && (
-            <a 
-              href={demoLink} 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className={cn(
-                "flex items-center gap-2 px-4 py-2 rounded-sm border-2 transition-all duration-300",
-                reverse 
-                  ? "border-cyber-magenta text-cyber-magenta hover:bg-cyber-magenta hover:text-cyber-dark-blue" 
-                  : "border-cyber-neon text-cyber-neon hover:bg-cyber-neon hover:text-cyber-dark-blue"
-              )}
-            >
-              <ExternalLink className="w-4 h-4" />
-              View
-            </a>
-          )}
-          
-          {codeLink && (
-            <a 
-              href={codeLink} 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="flex items-center gap-2 px-4 py-2 rounded-sm border-2 border-foreground/30 text-foreground/80 hover:bg-foreground/10 transition-all duration-300"
-            >
-              <Github className="w-4 h-4" />
-              Code
-            </a>
-          )}
+
+        <div className={cn("lg:w-3/5 p-6 md:p-8", reverse && "lg:order-1")}>
+          {/* Mini status bar */}
+          <div className="flex items-center gap-2 mb-4">
+            <Terminal className={cn("w-3 h-3", accentText)} />
+            <span className="font-mono text-[9px] tracking-[0.3em] text-foreground/30 uppercase">Project // {String(index + 1).padStart(2, '0')}</span>
+          </div>
+
+          <h3 className={cn("text-xl md:text-2xl font-['Orbitron'] mb-3", accentText)}>
+            {title}
+          </h3>
+
+          <p className="text-foreground/60 mb-5 text-sm leading-relaxed">{description}</p>
+
+          <div className="flex flex-wrap gap-2 mb-6">
+            {tags.map((tag, i) => (
+              <span key={i} className={cn(
+                "px-2.5 py-1 text-[10px] font-mono tracking-wider rounded-sm border",
+                reverse ? "border-[#ff19f8]/20 text-[#ff19f8]/70 bg-[#ff19f8]/5" : "border-cyber-neon/20 text-cyber-neon/70 bg-cyber-neon/5"
+              )}>
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          <div className="flex gap-3">
+            {demoLink && (
+              <a href={demoLink} target="_blank" rel="noopener noreferrer"
+                className={cn(
+                  "flex items-center gap-2 px-4 py-2 text-xs font-mono tracking-wider rounded-sm border transition-all duration-300 magnetic-btn",
+                  reverse ? "border-[#ff19f8]/50 text-[#ff19f8] hover:bg-[#ff19f8] hover:text-black hover:shadow-[0_0_20px_rgba(255,25,248,0.4)]"
+                    : "border-cyber-neon/50 text-cyber-neon hover:bg-cyber-neon hover:text-black hover:shadow-[0_0_20px_rgba(0,255,102,0.4)]"
+                )}>
+                <ExternalLink className="w-3 h-3" /> VIEW
+              </a>
+            )}
+            {codeLink && (
+              <a href={codeLink} target="_blank" rel="noopener noreferrer"
+                className="flex items-center gap-2 px-4 py-2 text-xs font-mono tracking-wider rounded-sm border border-foreground/15 text-foreground/50 hover:text-foreground hover:border-foreground/30 transition-all duration-300">
+                <Github className="w-3 h-3" /> CODE
+              </a>
+            )}
+          </div>
         </div>
       </div>
     </div>
@@ -128,7 +131,7 @@ const ProjectsSection = () => {
       tags: ["TypeScript", "Bolt.new", "Vercel", "Responsive Design", "Performance Optimization"],
       image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&auto=format&fit=crop",
       demoLink: "https://www.omritech.co.za",
-      primaryIcon: <Code className="w-20 h-20 text-cyber-magenta" />,
+      primaryIcon: <Code className="w-20 h-20 text-[#ff19f8]" />,
       reverse: true
     },
     {
@@ -148,7 +151,7 @@ const ProjectsSection = () => {
       image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&auto=format&fit=crop",
       demoLink: "http://squad-project-ec2elites.s3-website-us-east-1.amazonaws.com/",
       codeLink: "https://github.com/Whitney-coded",
-      primaryIcon: <Network className="w-20 h-20 text-cyber-magenta" />,
+      primaryIcon: <Network className="w-20 h-20 text-[#ff19f8]" />,
       reverse: true
     },
     {
@@ -168,7 +171,7 @@ const ProjectsSection = () => {
       image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=800&auto=format&fit=crop",
       demoLink: "#",
       codeLink: "#",
-      primaryIcon: <Server className="w-20 h-20 text-cyber-magenta" />,
+      primaryIcon: <Server className="w-20 h-20 text-[#ff19f8]" />,
       reverse: true
     },
     {
@@ -184,30 +187,34 @@ const ProjectsSection = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 bg-cyber-black/40">
-      <div className="container mx-auto px-4">
+    <section id="projects" className="py-24 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-[#060610] to-black" />
+      <div className="absolute inset-0 hero-neon-grid" />
+      <div className="absolute inset-0 hero-scanlines" />
+
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="inline-block cyber-text text-3xl md:text-4xl font-bold mb-4 pb-2 border-b-2 border-cyber-neon">
+          <div className="inline-flex items-center gap-3 mb-4">
+            <Code className="w-5 h-5 text-cyber-neon" />
+            <span className="font-mono text-xs tracking-[0.3em] text-cyber-neon/60 uppercase">Mission Archive</span>
+          </div>
+          <h2 className="font-['Orbitron'] text-3xl md:text-5xl font-bold" style={{
+            background: 'linear-gradient(135deg, #0ef7f7, #00ff66, #ff19f8)',
+            backgroundSize: '200% 200%',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            animation: 'gradientShift 4s ease infinite'
+          }}>
             FEATURED PROJECTS
           </h2>
-          <p className="text-lg md:text-xl max-w-3xl mx-auto text-foreground/80">
-            A showcase of my web development and cloud architecture projects, demonstrating expertise in HTML, CSS, and AWS technologies.
+          <p className="text-sm font-mono text-foreground/50 mt-3 tracking-wider">
+            Web development and cloud architecture deployments
           </p>
         </div>
 
-        <div className="space-y-12">
+        <div className="space-y-10">
           {projects.map((project, index) => (
-            <ProjectCard 
-              key={index}
-              title={project.title}
-              description={project.description}
-              tags={project.tags}
-              image={project.image}
-              demoLink={project.demoLink}
-              codeLink={project.codeLink}
-              primaryIcon={project.primaryIcon}
-              reverse={project.reverse}
-            />
+            <ProjectCard key={index} {...project} index={index} />
           ))}
         </div>
       </div>
