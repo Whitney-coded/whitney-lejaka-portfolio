@@ -79,6 +79,10 @@ const ContactSection = () => {
                   className="w-11 h-11 glass-panel rounded-sm flex items-center justify-center text-[#ff19f8] transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,25,248,0.3)] hover:border-[#ff19f8]/40 magnetic-btn">
                   <Github className="w-5 h-5" />
                 </a>
+                <a href="https://wa.me/27763102692" target="_blank" rel="noopener noreferrer"
+                  className="w-11 h-11 glass-panel rounded-sm flex items-center justify-center text-[#25D366] transition-all duration-300 hover:shadow-[0_0_20px_rgba(37,211,102,0.3)] hover:border-[#25D366]/40 magnetic-btn">
+                  <MessageCircle className="w-5 h-5" />
+                </a>
               </div>
             </div>
           </div>
