@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Mail, MapPin, Phone, Github, Linkedin, Signal } from 'lucide-react';
+import { Mail, MapPin, Phone, Github, Linkedin, Signal, MessageCircle } from 'lucide-react';
 
 const CornerBrackets = ({ color = 'rgba(0, 255, 102, 0.5)' }: { color?: string }) => (
   <>
