@@ -128,7 +128,7 @@ const HeroSection = () => {
             {/* Role line */}
             <h2 className="text-lg md:text-xl font-['Rajdhani',sans-serif] font-semibold tracking-[0.3em] uppercase text-foreground/60">
               <span className="text-cyber-neon">&#60;</span>
-              {' '}Web Developer · Cloud Architect · AI Enthusiast{' '}
+              {' '}Web Developer · AI Enthusiast{' '}
               <span className="text-cyber-neon">&#47;&#62;</span>
             </h2>
 
